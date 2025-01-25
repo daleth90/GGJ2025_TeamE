@@ -16,11 +16,11 @@ namespace Bubble
         [SerializeField] private float object_Slow_ForceX = 0;/*減緩移動速度X軸*/
         [SerializeField] private float object_Slow_ForceY = 0;/*減緩移動速度Y軸*/
         [SerializeField] private bool player_Is_Dash = false;
-        [SerializeField] private int _oxygen;
+        [SerializeField] private float _oxygen;
 
         private bool isDeath;
 
-        public int oxygen
+        public float oxygen
         {
             get => _oxygen;
             set
@@ -31,7 +31,7 @@ namespace Bubble
             }
         }
 
-        public event System.Action<int> OnOxygenChanged;
+        public event System.Action<float> OnOxygenChanged;
         public event UnityAction DeathAction;
 
         public bool FaceRight { get => faceRight; set => faceRight = value; }
