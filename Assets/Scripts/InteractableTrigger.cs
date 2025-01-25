@@ -14,7 +14,8 @@ namespace Bubble
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.gameObject.layer != target_layer) return;
-            other.GetComponent<IInteractable>().Interact();
+            IInteractable interactable = other.GetComponent<IInteractable>();
+            interactable?.Interact();
         }
     }
 }
