@@ -11,6 +11,7 @@ namespace Bubble
         [SerializeField] private Vector2 object_Inertia = new(0, 0);/*物體慣性移動速度*/
         [SerializeField] private float object_Slow_ForceX = 0;/*減緩移動速度X軸*/
         [SerializeField] private float object_Slow_ForceY = 0;/*減緩移動速度Y軸*/
+         public bool Player_Is_Dash = false;
 
         private int _oxygen;
         public int oxygen

@@ -15,7 +15,7 @@ namespace Bubble
         {
             if (collision.collider.CompareTag("Player"))
             {
-                _collider.enabled = !collision.collider.GetComponent<PlayerStatus>().isInDash;
+                _collider.enabled = !collision.collider.GetComponent<PlayerStatus>().Player_Is_Dash;
             }
         }
 
