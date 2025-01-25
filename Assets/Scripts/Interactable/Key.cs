@@ -11,7 +11,7 @@ namespace Bubble
         {
             if (collider.CompareTag("Player"))
             {
-                _target.Interact();
+                _target.InteractWithKey();
                 // Play Sound Effect...
                 gameObject.SetActive(false);
             }

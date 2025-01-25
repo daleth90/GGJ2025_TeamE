@@ -1,9 +1,7 @@
-using UnityEngine;
-
 namespace Bubble
 {
-    public class KeyInteractable : MonoBehaviour
+    public class KeyInteractable : Interactable
     {
-        public virtual void Interact() {}
+        public virtual void InteractWithKey() {}
     }
 }

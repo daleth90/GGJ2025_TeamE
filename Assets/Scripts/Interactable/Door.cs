@@ -2,11 +2,11 @@ namespace Bubble
 {
     public class Door : KeyInteractable
     {
-        public override void Interact()
+        public override void InteractWithKey()
         {
             // Play Animation
             // Play Sound Effect
-            gameObject.SetActive(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

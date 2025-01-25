@@ -13,7 +13,7 @@ namespace Bubble
             {
                 collider.GetComponent<PlayerStatus>().oxygen += _recoveryAmount;
                 // Play Sound Effect...
-                Destroy(gameObject);
+                gameObject.SetActive(false);
             }
         }
     }
