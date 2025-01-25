@@ -31,10 +31,15 @@ namespace Bubble
                 MoveDate.x = Mathf.Clamp(MoveDate.x, -playerStatus.MaxMoveSpeedX, playerStatus.MaxMoveSpeedX);
                 MoveDate.y = Mathf.Clamp(MoveDate.y, -playerStatus.MaxMoveSpeedY, playerStatus.MaxMoveSpeedY);
             }
+            playerStatus.Object_Inertia += MoveDate;
             Vector3 Vec3 = MoveDate;
             this.transform.position += Vec3 * Time.deltaTime;/*暫時的*/
             MoveDate = NullVec3;/*close old.*/
             return false;/*close old.*/
+        }
+        public void Player_Move()
+        {
+
         }
         //private void Move_Speed_confirm()
         //{

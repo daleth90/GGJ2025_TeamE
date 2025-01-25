@@ -4,7 +4,7 @@ namespace Bubble
 {
     public class Player_Input : MonoBehaviour
     {
-        bool Player_Is_Move = false, Player_Is_Dash = false;
+        bool Player_Is_Move = false;
         [SerializeField] SpriteRenderer Player_Image;
 
         [SerializeField] private Movement_Ctrl movement_Ctrl;
@@ -20,8 +20,6 @@ namespace Bubble
         {
             if (Can_Move)
             {
-
-
                 if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.LeftArrow))/*+z*/
                 {
                     Player_Is_Move = movement_Ctrl.GetInput_Date(Vector2.right);
@@ -34,9 +32,10 @@ namespace Bubble
                 {
                     Player_Is_Move = movement_Ctrl.GetInput_Date(Vector2.up);
                 }
-                if (Input.GetKeyDown(KeyCode.LeftShift)) Player_Is_Dash = true;/*Dash*/
-                if (Player_Is_Move || Player_Is_Dash)
-                    Player_Is_Dash = Player_Is_Move = movement_Ctrl.Player_Move(Player_Image, Player_Is_Dash);
+                if (Input.GetKeyDown(KeyCode.LeftShift)) playerStatus.Player_Is_Dash = true;/*Dash*/
+                if (Player_Is_Move || playerStatus.Player_Is_Dash)
+                    playerStatus.Player_Is_Dash = Player_Is_Move = movement_Ctrl.Player_Move(Player_Image, playerStatus.Player_Is_Dash);
+                else movement_Ctrl.Player_Move();
                 if (Input.GetKeyDown(KeyCode.W))
                 {
                     Debug.Log("Add Bubble.");
