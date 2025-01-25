@@ -17,15 +17,6 @@ namespace Bubble
         public bool Player_Move(SpriteRenderer Iamge, bool Is_Dash)/*Player is Use Button.*/
         {
             //Debug.Log($" *PlayerMove_Func();\n{MoveDate},{Is_Dash}");/*Return this.func() is work.*/
-            switch (MoveDate.x)/*Update Player Image.*/
-            {
-                case 1:
-                    Iamge.flipX = false;
-                    break;
-                case -1:
-                    Iamge.flipX = true;
-                    break;
-            }
             if (Is_Dash)/*Add dash power*/
             {
                 if (MoveDate.x != 0) MoveDate.x *= 2 * 2;/*Player is on Move*/
@@ -45,9 +36,15 @@ namespace Bubble
             Player_Movement = NullVec3;/*close old.*/
             return false;/*close old.*/
         }
-        public void Player_Move(bool Hold_Gravity)/*Player not use Any Button.*/
+        public void Player_Move(bool Hold_Gravity, SpriteRenderer Iamge)/*Player not use Any Button.*/
         {
-            if ((playerStatus.Object_InertiaX -= playerStatus.Object_Slow_ForceX) < 0) playerStatus.Object_InertiaX = 0;
+            if (playerStatus.Object_Slow_ForceX != 0)
+            {
+                bool X = Iamge.flipX;
+                float MoveX = Mathf.Abs(playerStatus.Object_InertiaX);
+                if ((MoveX -= playerStatus.Object_Slow_ForceX) <= 0) playerStatus.Object_InertiaX = 0;
+                else playerStatus.Object_InertiaX = X ? MoveX : -MoveX;
+            }
             if (Hold_Gravity)
                 _ = playerStatus.Object_InertiaY <= -playerStatus.MaxMoveSpeedY ? playerStatus.Object_InertiaY = -playerStatus.MaxMoveSpeedY : playerStatus.Object_InertiaY -= playerStatus.MaxMoveSpeedY;
             else playerStatus.Object_InertiaY = 0;

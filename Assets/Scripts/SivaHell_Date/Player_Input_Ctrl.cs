@@ -23,10 +23,12 @@ namespace Bubble
                 if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.LeftArrow))/*+z*/
                 {
                     Player_Is_Move = movement_Ctrl.GetInput_Date(1,0);
+                    Player_Image.flipX = false;
                 }
                 if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.RightArrow))/*-z*/
                 {
                     Player_Is_Move = movement_Ctrl.GetInput_Date(-1,0);
+                    Player_Image.flipX = true;
                 }
                 if (Input.GetKey(KeyCode.Space))/*MoveUp*/
                 {
@@ -34,12 +36,27 @@ namespace Bubble
                 }
                 if (Input.GetKeyDown(KeyCode.LeftShift)) playerStatus.Player_Is_Dash = true;/*Dash*/
                 if (Player_Is_Move || playerStatus.Player_Is_Dash)
+                {
                     playerStatus.Player_Is_Dash = Player_Is_Move = movement_Ctrl.Player_Move(Player_Image, playerStatus.Player_Is_Dash);
-                else movement_Ctrl.Player_Move(Hold_Gravity);
+                    Image_flipX();
+                }
+                else movement_Ctrl.Player_Move(Hold_Gravity, Player_Image);
                 if (Input.GetKeyDown(KeyCode.W))
                 {
                     Debug.Log("Add Bubble.");
                 }
+            }
+        }
+        private void Image_flipX()
+        {
+            switch (playerStatus.Object_InertiaX)/*Update Player Image.*/
+            {
+                case 1:
+                    Player_Image.flipX = false;
+                    break;
+                case -1:
+                    Player_Image.flipX = true;
+                    break;
             }
         }
     }
