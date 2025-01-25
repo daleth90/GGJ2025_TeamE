@@ -31,7 +31,7 @@ namespace Bubble
 
         private void Update()
         {
-            transform.localScale = _playerStatus.FaceRight ? new Vector3(1, 1, 1) : new Vector3(-1, 1, 1);
+            transform.localScale = _playerStatus.FaceRight ? new Vector3(-1, 1, 1) : new Vector3(1, 1, 1);
 
             if (_playerStatus.VelocityX != 0f)
             {
