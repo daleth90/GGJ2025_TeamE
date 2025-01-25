@@ -35,7 +35,7 @@ namespace Bubble
                 }
                 if (Input.GetKeyDown(KeyCode.LeftShift)) Player_Is_Dash = true;/*Dash*/
                 if (Player_Is_Move || Player_Is_Dash)
-                    Player_Is_Dash = Player_Is_Move = movement_Ctrl.Player_Move(playerStatus.MaxSpeed, Player_Image, Player_Is_Dash);
+                    Player_Is_Dash = Player_Is_Move = movement_Ctrl.Player_Move(Player_Image, Player_Is_Dash);
                 if (Input.GetKeyDown(KeyCode.W))
                 {
                     Debug.Log("Add Bubble.");

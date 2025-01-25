@@ -11,7 +11,7 @@ namespace Bubble
         }
         public bool GetInput_Date(float x, float y) { MoveDate += new Vector2(x, y); return true; }
         public bool GetInput_Date(Vector2 Vec2) { MoveDate += Vec2; return true; }
-        public bool Player_Move(float MaxSpeed, SpriteRenderer Iamge,bool Is_Dash)
+        public bool Player_Move( SpriteRenderer Iamge,bool Is_Dash)
         {
             //Debug.Log($" *PlayerMove_Func();\n{MoveDate},{Is_Dash}");/*Return this.func() is work.*/
             switch (MoveDate.x)/*Update Player Image.*/
@@ -38,7 +38,6 @@ namespace Bubble
 
             }
             {
-
             }
             Vector3 Vec3 = MoveDate;
             this.transform.position += Vec3 * Time.deltaTime;/*暫時的*/
