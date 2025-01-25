@@ -20,6 +20,15 @@ namespace Bubble
             _audioManager = ServiceLocator.Resolve<IAudioManager>();
         }
 
+        private void OnDisable()
+        {
+            if (_soundLoopMove != null)
+            {
+                _audioManager.StopSoundLoop(_soundLoopMove);
+                _soundLoopMove = null;
+            }
+        }
+
         private void Update()
         {
             transform.localScale = _playerStatus.FaceRight ? new Vector3(1, 1, 1) : new Vector3(-1, 1, 1);
