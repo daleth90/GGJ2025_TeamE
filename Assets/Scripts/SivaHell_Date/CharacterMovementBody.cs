@@ -41,7 +41,12 @@ namespace Bubble
 
         private void Start()
         {
-            _groundLayerMask = LayerMask.GetMask("Ground");
+            SetLayerMask("Ground", "Vine");
+        }
+
+        public void SetLayerMask(params string[] layerNames)
+        {
+            _groundLayerMask = LayerMask.GetMask(layerNames);
         }
 
         public CharacterMovementResult Move(Vector2 position, float deltaX, float deltaY, bool applyPosition = true)

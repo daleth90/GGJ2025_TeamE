@@ -9,6 +9,7 @@ namespace Bubble
         [SerializeField] private Movement_Ctrl movement_Ctrl;
         [SerializeField] private PlayerStatus playerStatus;
         [SerializeField] bool Can_Move = true, Hold_Gravity = true;
+        [SerializeField] private CharacterMovementBody characterMovementBody;
         private void Start()
         {
             movement_Ctrl.Start_Movement_Ctrl(playerStatus);
@@ -30,10 +31,16 @@ namespace Bubble
                 {
                     Player_Is_Move = movement_Ctrl.GetInput_Date(0,1);
                 }
-                if (Input.GetKeyDown(KeyCode.LeftShift)) playerStatus.Player_Is_Dash = true;/*Dash*/
+                if (Input.GetKeyDown(KeyCode.LeftShift))
+                {
+                    playerStatus.Player_Is_Dash = true;/*Dash*/
+                    characterMovementBody.SetLayerMask("Ground");
+                }
+
                 if (Player_Is_Move || playerStatus.Player_Is_Dash)
                 {
                     playerStatus.Player_Is_Dash = Player_Is_Move = movement_Ctrl.Player_Move(playerStatus.Player_Is_Dash, Hold_Gravity);
+                    characterMovementBody.SetLayerMask("Ground", "Vine");
                 }
                 else movement_Ctrl.Player_Move(Hold_Gravity);
                 if (Input.GetKeyDown(KeyCode.W))

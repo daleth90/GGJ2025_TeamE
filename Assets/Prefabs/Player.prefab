@@ -329,6 +329,7 @@ GameObject:
   - component: {fileID: 3099289850384173761}
   - component: {fileID: 1710706193799994828}
   - component: {fileID: 1515426571080414310}
+  - component: {fileID: 270954352401671575}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -364,11 +365,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ca1be5639b783448b69aad1e792ed5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player_Image: {fileID: 0}
   movement_Ctrl: {fileID: 7212429420882262289}
   playerStatus: {fileID: 4016139999966219866}
   Can_Move: 1
   Hold_Gravity: 1
+  characterMovementBody: {fileID: 1710706193799994828}
 --- !u!114 &7212429420882262289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -402,6 +403,7 @@ MonoBehaviour:
   object_Slow_ForceX: 10
   object_Slow_ForceY: 5
   player_Is_Dash: 0
+  _oxygen: 100
 --- !u!61 &3099289850384173761
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -431,7 +433,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -492,3 +494,18 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &270954352401671575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9168269598283705433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a233d5090e1ec8d4588d0a2f259c3ac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target_layerMask:
+    serializedVersion: 2
+    m_Bits: 128
