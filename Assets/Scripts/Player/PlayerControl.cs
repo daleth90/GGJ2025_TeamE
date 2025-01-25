@@ -133,7 +133,6 @@ namespace Bubble
 
         private void DoMovement()
         {
-            Vector2 previousPosition = playerStatus.transform.position;
             bool isPreviousGrounded = playerStatus.IsGrounded;
 
             var moveOffset = new Vector2(playerStatus.VelocityX, playerStatus.VelocityY) * Time.deltaTime;
@@ -146,9 +145,25 @@ namespace Bubble
                 playerStatus.VelocityY = 0f;
             }
 
-            if (MathUtility.ApproximatelyZero(result.newPosition - previousPosition))
+            if (result.isWall)
             {
-                playerStatus.VelocityX = 0f;
+                // Wall deceleration
+                if (playerStatus.VelocityX > 0)
+                {
+                    playerStatus.VelocityX -= playerStatus.AccelerationX * Time.deltaTime;
+                    if (playerStatus.VelocityX < 0)
+                    {
+                        playerStatus.VelocityX = 0;
+                    }
+                }
+                else if (playerStatus.VelocityX < 0)
+                {
+                    playerStatus.VelocityX += playerStatus.AccelerationX * Time.deltaTime;
+                    if (playerStatus.VelocityX > 0)
+                    {
+                        playerStatus.VelocityX = 0;
+                    }
+                }
             }
         }
     }

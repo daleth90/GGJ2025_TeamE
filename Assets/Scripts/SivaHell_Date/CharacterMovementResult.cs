@@ -7,6 +7,7 @@ namespace Bubble
         public Vector2 newPosition;
         public bool isGrounded;
         public bool isCeiling;
+        public bool isWall;
     }
 
     public struct RaycastResult

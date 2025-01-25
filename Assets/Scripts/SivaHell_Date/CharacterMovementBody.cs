@@ -94,6 +94,7 @@ namespace Bubble
                 newPosition = newPosition,
                 isGrounded = _movement.CollisionInfo.bottom,
                 isCeiling = _movement.CollisionInfo.top,
+                isWall = _movement.CollisionInfo.left || _movement.CollisionInfo.right,
             };
 
             return result;
