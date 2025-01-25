@@ -74,6 +74,8 @@ namespace Bubble
             gameSystemView.Init(_audioManager, levelManager);
             levelManager.Init(playerStatus);
 
+            levelManager.ReStartLevel();
+
             AddGameStartAction();
             AddGameEndAction();
             AddGameFailAction();
@@ -81,8 +83,10 @@ namespace Bubble
             AddEndUIButtonEvent();
             AddPlayerStatusDeathAction();
             AddGameSystemModelLog();
+        }
 
-            levelManager.ReStartLevel();
+        private void Start()
+        {
             gameSystemModel.GameStartAction();
         }
 
