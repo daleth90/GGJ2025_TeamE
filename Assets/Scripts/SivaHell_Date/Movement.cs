@@ -49,9 +49,7 @@ namespace Bubble
         {
             if ((playerStatus.Object_InertiaX -= playerStatus.Object_Slow_ForceX) < 0) playerStatus.Object_InertiaX = 0;
             if (Hold_Gravity)
-                if ((playerStatus.Object_InertiaY -= playerStatus.MaxMoveSpeedY) != -playerStatus.MaxMoveSpeedY)
-                    playerStatus.Object_InertiaY = -playerStatus.MaxMoveSpeedY;
-                else;
+                _ = playerStatus.Object_InertiaY != -playerStatus.MaxMoveSpeedY ? playerStatus.Object_InertiaY -= playerStatus.MaxMoveSpeedY : playerStatus.Object_InertiaY = -playerStatus.MaxMoveSpeedY;
             else playerStatus.Object_InertiaY = 0;
             Player_Movement = playerStatus.Object_Inertia;
             this.transform.position += Player_Movement * Time.deltaTime;
