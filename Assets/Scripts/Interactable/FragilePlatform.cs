@@ -11,22 +11,22 @@ namespace Bubble
 
         [SerializeField] float holdTime = 1f;
 
-        private bool isTrigger;
+        private bool isStart;
         private CancellationToken cancellationToken;
 
         public void Init()
         {
             if (cancellationToken == null) cancellationToken = this.GetCancellationTokenOnDestroy();
 
-            isTrigger = false;
+            isStart = false;
             transform.parent.gameObject.SetActive(true);
         }
 
-        public async void Interact()
+        public async void Interact(PlayerStatus playerStatus = null)
         {
-            if (isTrigger) return;
+            if (isStart) return;
 
-            isTrigger = true;
+            isStart = true;
 
             await UniTask.Delay((int)(1000f * holdTime), cancellationToken: cancellationToken);
             transform.parent.gameObject.SetActive(false);

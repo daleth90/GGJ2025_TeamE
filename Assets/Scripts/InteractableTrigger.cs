@@ -4,6 +4,7 @@ namespace Bubble
     public class InteractableTrigger : MonoBehaviour
     {
         [SerializeField] private LayerMask target_layerMask;
+        [SerializeField] private PlayerStatus playerStatus;
         private int target_layer;
 
         private void Start()
@@ -15,7 +16,14 @@ namespace Bubble
         {
             if (other.gameObject.layer != target_layer) return;
             IInteractable interactable = other.GetComponent<IInteractable>();
-            interactable?.Interact();
+            interactable?.Interact(playerStatus);
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (other.gameObject.layer != target_layer) return;
+            IInteractable interactable = other.GetComponent<IInteractable>();
+            interactable?.CancelInteract();
         }
     }
 }

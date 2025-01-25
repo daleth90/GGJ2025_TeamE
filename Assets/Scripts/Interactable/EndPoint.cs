@@ -4,7 +4,7 @@ namespace Bubble
 {
     public class EndPoint : MonoBehaviour, IInteractable
     {
-        public void Interact()
+        public void Interact(PlayerStatus playerStatus = null)
         {
             GameSystemModel.instance.GameSuccessfulAction?.Invoke();
         }

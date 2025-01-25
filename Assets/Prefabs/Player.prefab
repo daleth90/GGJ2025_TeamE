@@ -507,6 +507,7 @@ MonoBehaviour:
   target_layerMask:
     serializedVersion: 2
     m_Bits: 128
+  playerStatus: {fileID: 4016139999966219866}
 --- !u!1001 &1083133828262293325
 PrefabInstance:
   m_ObjectHideFlags: 0

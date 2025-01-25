@@ -175,18 +175,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 630710216}
     - target: {fileID: 2162653123849820666, guid: d2756575b795dd84ba07eea554461f30, type: 3}
-      propertyPath: levelManager.levelList.Array.data[0]
-      value: 
-      objectReference: {fileID: 4778233289683460042, guid: b76ad5d849951314aa27f287e15e28c1, type: 3}
-    - target: {fileID: 2162653123849820666, guid: d2756575b795dd84ba07eea554461f30, type: 3}
-      propertyPath: levelManager.levelList.Array.data[1]
-      value: 
-      objectReference: {fileID: 4778233289683460042, guid: 7259809dd94dde846b08d2f5f2c9c922, type: 3}
-    - target: {fileID: 2162653123849820666, guid: d2756575b795dd84ba07eea554461f30, type: 3}
-      propertyPath: levelManager.levelList.Array.data[2]
-      value: 
-      objectReference: {fileID: 4778233289683460042, guid: e1f932d3ce2fda94eb28c0650beee927, type: 3}
-    - target: {fileID: 2162653123849820666, guid: d2756575b795dd84ba07eea554461f30, type: 3}
       propertyPath: gameSystemView.<endUI>k__BackingField
       value: 
       objectReference: {fileID: 1875536599}
