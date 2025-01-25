@@ -31,12 +31,14 @@ namespace Bubble
 
         private void AddGameSuccessfulAction()
         {
+            gameSystemModel.GameSuccessfulAction += () => _audioManager.PlaySound("SFX_Goal");
             gameSystemModel.GameSuccessfulAction += gameSystemModel.GameEndAction;
             gameSystemModel.GameSuccessfulAction += gameSystemView.GameSuccessfulView;
         }
 
         private void AddGameFailAction()
         {
+            gameSystemModel.GameFailAction += () => _audioManager.PlaySound("SFX_PlayerDeath");
             gameSystemModel.GameFailAction += gameSystemModel.GameEndAction;
             gameSystemModel.GameFailAction += gameSystemView.GameFailView;
         }
