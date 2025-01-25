@@ -1,13 +1,18 @@
-using System;
-using System.Collections.Generic;
-using Bubble;
+using UnityEngine;
 
 namespace Bubble
 {
-    public class PlayerStatus : IPlayerStatus
+    public class PlayerStatus : MonoBehaviour, IPlayerMovementData, IPlayerOxygenStatus
     {
-        int _oxygen;
+        [Header("Movement")]
+        [SerializeField] private float _acceleration;
+        public float acceleration => _acceleration;
 
+        [SerializeField] private float _maxSpeed;
+        public float moveSpeed => _maxSpeed;
+
+
+        private int _oxygen;
         public int oxygen
         {
             get => _oxygen;
@@ -17,7 +22,6 @@ namespace Bubble
                 OnOxygenChanged.Invoke(_oxygen);
             }
         }
-
-        public event Action<int> OnOxygenChanged;
+        public event System.Action<int> OnOxygenChanged;
     }
 }

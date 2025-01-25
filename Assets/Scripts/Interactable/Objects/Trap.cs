@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Bubble
 {
-    public class Sharp : MonoBehaviour
+    public class Trap : MonoBehaviour
     {
         [SerializeField]
         private int _damage;
@@ -11,7 +11,7 @@ namespace Bubble
         {
             if (collider.CompareTag("Player"))
             {
-                collider.GetComponent<IPlayerStatus>().oxygen -= _damage;
+                collider.GetComponent<IPlayerOxygenStatus>().oxygen -= _damage;
             }
         }
     }

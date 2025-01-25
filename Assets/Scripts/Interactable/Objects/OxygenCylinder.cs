@@ -11,7 +11,7 @@ namespace Bubble
         {
             if (collider.CompareTag("Player"))
             {
-                collider.GetComponent<IPlayerStatus>().oxygen += _recoveryAmount;
+                collider.GetComponent<IPlayerOxygenStatus>().oxygen += _recoveryAmount;
                 // Play Sound Effect...
                 Destroy(gameObject);
             }
