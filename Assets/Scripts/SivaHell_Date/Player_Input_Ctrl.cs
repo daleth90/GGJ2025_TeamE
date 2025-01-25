@@ -20,12 +20,12 @@ namespace Bubble
         {
             if (Can_Move)
             {
-                if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.LeftArrow))/*+z*/
+                if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))/*+z*/
                 {
                     Player_Is_Move = movement_Ctrl.GetInput_Date(1,0);
                     Player_Image.flipX = false;
                 }
-                if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.RightArrow))/*-z*/
+                if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))/*-z*/
                 {
                     Player_Is_Move = movement_Ctrl.GetInput_Date(-1,0);
                     Player_Image.flipX = true;
