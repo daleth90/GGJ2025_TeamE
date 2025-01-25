@@ -46,7 +46,7 @@ namespace Bubble
         public void Init()
         {
             _oxygen = 100;
-            isDeath = true;
+            isDeath = false;
         }
 
         private void JudgeDeath()
