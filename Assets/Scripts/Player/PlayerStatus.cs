@@ -15,7 +15,7 @@ namespace Bubble
         [SerializeField] private float object_Slow_ForceX = 0;/*減緩移動速度X軸*/
         [SerializeField] private float object_Slow_ForceY = 0;/*減緩移動速度Y軸*/
         [SerializeField] private bool player_Is_Dash = false;
-        private int _oxygen = 100;
+        [SerializeField] private int _oxygen = 100;
 
         private bool isDeath;
 

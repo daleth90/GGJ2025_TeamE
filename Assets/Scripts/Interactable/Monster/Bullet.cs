@@ -44,12 +44,12 @@ public class Bullet : MonoBehaviour
         transform.position = target;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
         // If find player then attack.
-        if (collision.collider.CompareTag("Player"))
+        if (collider.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<PlayerStatus>().oxygen -= _damage;
+            collider.GetComponent<PlayerStatus>().oxygen -= _damage;
             Destroy(gameObject);
         }
     }
@@ -62,7 +62,6 @@ public class Bullet : MonoBehaviour
 
     private void AttackIfArrivedOrTimeout()
     {
-        Debug.Log($"{_startTime + _lifeTime},  {Time.time}");
         // Attack/Destroy if arrived or timeout
         if ((_player == null && transform.position == _targetPosition)
             || _startTime + _lifeTime < Time.time)
