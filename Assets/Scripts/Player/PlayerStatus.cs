@@ -2,14 +2,11 @@ using UnityEngine;
 
 namespace Bubble
 {
-    public class PlayerStatus : MonoBehaviour, IPlayerMovementData, IPlayerOxygenStatus
+    public class PlayerStatus : MonoBehaviour, IPlayerOxygenStatus
     {
-        [Header("Movement")]
-        [SerializeField] private float _acceleration;
-        public float acceleration => _acceleration;
-
-        [SerializeField] private float _maxSpeed;
-        public float moveSpeed => _maxSpeed;
+        [SerializeField] private float maxMoveSpeedY = 0;
+        [SerializeField] private float maxMoveSpeedX = 0;
+        [SerializeField] private float maxSpeed = 0;
 
 
         private int _oxygen;
@@ -22,6 +19,12 @@ namespace Bubble
                 OnOxygenChanged.Invoke(_oxygen);
             }
         }
+
         public event System.Action<int> OnOxygenChanged;
+
+        public float MaxMoveSpeedX { get => maxMoveSpeedX; set => maxMoveSpeedX = value; }
+        public float MaxMoveSpeedY { get => maxMoveSpeedY; set => maxMoveSpeedY = value; }
+        public float MaxSpeed { get => maxSpeed; set => maxSpeed = value; }
+
     }
 }
