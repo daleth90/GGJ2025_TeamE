@@ -470,14 +470,6 @@ PrefabInstance:
       propertyPath: maxMoveSpeedY
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 4016139999966219866, guid: 7ca281ad1e15411468f615af8c05cfb2, type: 3}
-      propertyPath: object_Slow_ForceX
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4016139999966219866, guid: 7ca281ad1e15411468f615af8c05cfb2, type: 3}
-      propertyPath: object_Slow_ForceY
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 9168269598283705433, guid: 7ca281ad1e15411468f615af8c05cfb2, type: 3}
       propertyPath: m_Name
       value: Player
