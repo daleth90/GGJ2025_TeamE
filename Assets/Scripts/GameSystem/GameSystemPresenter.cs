@@ -13,46 +13,63 @@ namespace Bubble
 
         private void AddGameStartAction()
         {
-            gameSystemModel.GameStartAction += () => gameSystemView.endUI.ShowEndUI(false);
-            gameSystemModel.GameStartAction += levelManager.ReStartLevel;
+            gameSystemModel.GameStartAction += gameSystemView.GameStartView;
             gameSystemModel.GameStartAction += levelManager.PlayerReStorePosition;
         }
 
-        private void AddGameEndAction()
+        private void AddGameSuccessfulAction()
         {
-            gameSystemModel.GameEndAction += () => gameSystemView.endUI.ShowEndUI(true);
+            gameSystemModel.GameSuccessfulAction += gameSystemView.GameSuccessfulView;
+        }
+
+        private void AddGameFailAction()
+        {
+            gameSystemModel.GameFailAction += gameSystemView.GameFailView;
         }
 
         private void AddEndUIButtonEvent()
         {
+            gameSystemView.endUI.restartButton.onClick.AddListener(levelManager.ReStartLevel);
             gameSystemView.endUI.restartButton.onClick.AddListener(gameSystemModel.GameStartAction);
+            
+            gameSystemView.endUI.nextButton.onClick.AddListener(levelManager.NextLevel);
+            gameSystemView.endUI.nextButton.onClick.AddListener(gameSystemModel.GameStartAction);
+
             gameSystemView.endUI.quitButton.onClick.AddListener(() => SceneManager.LoadScene("Menu"));
         }
 
         private void AddGameSystemModelLog()
         {
             gameSystemModel.GameStartAction += gameSystemModel.GameStartLog;
-            gameSystemModel.GameEndAction += gameSystemModel.GameEndLog;
+            gameSystemModel.GameFailAction += gameSystemModel.GameSuccessfulLog;
         }
 
-        private void Start()
+        private void Awake()
         {
             gameSystemModel.Init();
-            gameSystemView.Init();
+            gameSystemView.Init(levelManager);
             levelManager.Init(playerStatus);
 
             AddGameStartAction();
-            AddGameEndAction();
+            AddGameFailAction();
+            AddGameSuccessfulAction();
             AddEndUIButtonEvent();
             AddGameSystemModelLog();
 
+            levelManager.ReStartLevel();
             gameSystemModel.GameStartAction();
         }
 
-        [ContextMenu(nameof(TestGameEnd))]
-        private void TestGameEnd()
+        [ContextMenu(nameof(GameSystemModel.GameSuccessfulAction))]
+        private void TestGameSuccessfulAction()
         {
-            gameSystemModel.GameEndAction?.Invoke();
+            gameSystemModel.GameSuccessfulAction?.Invoke();
+        }
+
+        [ContextMenu(nameof(GameSystemModel.GameFailAction))]
+        private void TestGameFailAction()
+        {
+            gameSystemModel.GameFailAction?.Invoke();
         }
     }
 }

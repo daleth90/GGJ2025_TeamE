@@ -1,5 +1,4 @@
 using System;
-using System.Net.NetworkInformation;
 using UnityEngine;
 
 namespace Bubble
@@ -10,6 +9,7 @@ namespace Bubble
         [SerializeField] private Level[] levelList;
 
         public Level currentLevel { get; private set; }
+        public bool isLastLevel { get { return leveNumber == levelList.Length; } private set { } }
         private byte leveNumber = 1;
 
         private PlayerStatus playerStatus;
@@ -26,8 +26,7 @@ namespace Bubble
 
         public void NextLevel()
         {
-            leveNumber ++;
-            LevelLoad(leveNumber);
+            LevelLoad((byte)(leveNumber + 1));
         }
 
         public void LevelLoad(byte targetLevelNumber)
