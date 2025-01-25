@@ -18,12 +18,12 @@ namespace Bubble
             if (_playerStatus.Object_InertiaX != 0f)
             {
                 _characterAnimator.SetBool("Walk", true);
-                _bubbleAnimator.SetBool("Walk", true);
+                //_bubbleAnimator.SetBool("Walk", true);
             }
             else
             {
                 _characterAnimator.SetBool("Walk", false);
-                _bubbleAnimator.SetBool("Walk", false);
+                //_bubbleAnimator.SetBool("Walk", false);
             }
 
             //if (_playerStatus.Player_Is_Dash)
