@@ -389,6 +389,7 @@ MonoBehaviour:
   maxMoveSpeedX: 10
   maxMoveSpeedY: 10
   dashSpeed: 20
+  dashDuration: 0.1
   accelerationX: 20
   decelerationX: 10
   gravity: 5
@@ -399,6 +400,7 @@ MonoBehaviour:
   playerGroundedFrame: 0
   _oxygen: 100
   _velocity: {x: 0, y: 0}
+  _dashTime: 0
 --- !u!61 &3099289850384173761
 BoxCollider2D:
   m_ObjectHideFlags: 0
