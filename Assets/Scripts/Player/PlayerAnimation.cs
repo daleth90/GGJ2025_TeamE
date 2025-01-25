@@ -1,3 +1,4 @@
+using Physalia;
 using UnityEngine;
 
 namespace Bubble
@@ -10,6 +11,14 @@ namespace Bubble
         private Animator _characterAnimator;
         [SerializeField]
         private Animator _bubbleAnimator;
+
+        private IAudioManager _audioManager;
+        private AudioSource _soundLoopMove;
+
+        private void Awake()
+        {
+            _audioManager = ServiceLocator.Resolve<IAudioManager>();
+        }
 
         private void Update()
         {
@@ -26,16 +35,26 @@ namespace Bubble
                 //_bubbleAnimator.SetBool("Walk", false);
             }
 
-            //if (_playerStatus.Player_Is_Dash)
-            //{
-            //    _characterAnimator.SetBool("Dash", true);
-            //    _bubbleAnimator.SetBool("Dash", true);
-            //}
-            //else
-            //{
-            //    _characterAnimator.SetBool("Dash", false);
-            //    _bubbleAnimator.SetBool("Dash", false);
-            //}
+            if (_playerStatus.Player_Is_Dash)
+            {
+                _audioManager.PlaySound("SFX_PlayerDash");
+            }
+
+            if (_playerStatus.Object_InertiaX != 0f)
+            {
+                if (_soundLoopMove == null)
+                {
+                    _soundLoopMove = _audioManager.PlaySoundLoop("SFX_PlayerMove");
+                }
+            }
+            else
+            {
+                if (_soundLoopMove != null)
+                {
+                    _audioManager.StopSoundLoop(_soundLoopMove);
+                    _soundLoopMove = null;
+                }
+            }
         }
     }
 }
