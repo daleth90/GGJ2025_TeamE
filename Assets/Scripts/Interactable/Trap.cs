@@ -2,18 +2,16 @@ using UnityEngine;
 
 namespace Bubble
 {
-    public class Key : MonoBehaviour
+    public class Trap : MonoBehaviour
     {
         [SerializeField]
-        private int _target;
+        private int _damage;
 
         private void OnTriggerEnter2D(Collider2D collider)
         {
             if (collider.CompareTag("Player"))
             {
-                collider.GetComponent<IPlayerOxygenStatus>().oxygen += 1;
-                // Play Sound Effect...
-                Destroy(gameObject);
+                collider.GetComponent<PlayerStatus>().oxygen -= _damage;
             }
         }
     }
