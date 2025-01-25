@@ -1,4 +1,5 @@
 using UnityEngine;
+
 namespace Bubble
 {
     public class Movement_Ctrl : MonoBehaviour
@@ -9,7 +10,7 @@ namespace Bubble
         Vector2 MoveDate = new(0, 0), NullVec2 = new(0, 0);
         Vector3 Player_Movement = new(0, 0, 0), NullVec3 = new(0, 0, 0);
         private PlayerStatus playerStatus;
-        
+
         public void Start_Movement_Ctrl(PlayerStatus playerStatus)
         {
             this.playerStatus = playerStatus;
@@ -17,7 +18,7 @@ namespace Bubble
         }
         public bool GetInput_Date(float x, float y) { MoveDate += new Vector2(x, y); return true; }
         //public bool GetInput_Date(Vector2 Vec2) { MoveDate += Vec2; return true; }
-        public bool Player_Move(bool Is_Dash,bool Hold_Gravity)/*Player is Use Button.*/
+        public bool Player_Move(bool Is_Dash, bool Hold_Gravity)/*Player is Use Button.*/
         {
             //Debug.Log($" *PlayerMove_Func();\n{MoveDate},{Is_Dash}");/*Return this.func() is work.*/
             if (Is_Dash)/*Add dash power*/
@@ -37,7 +38,7 @@ namespace Bubble
                 Player_Movement = new Vector2(playerStatus.Object_InertiaX, playerStatus.Object_InertiaY) * Time.deltaTime;
             }
 
-            var result = _characterMovementBody.Move(transform.position, Player_Movement.x, Player_Movement.y);
+            DoDetailedMove(Player_Movement);
 
             MoveDate = NullVec2;/*close old.*/
             Player_Movement = NullVec3;/*close old.*/
@@ -48,15 +49,28 @@ namespace Bubble
             Player_Move_SlowX();
             Player_Move_SlowY(Hold_Gravity);
             Player_Movement = new Vector2(playerStatus.Object_InertiaX, playerStatus.Object_InertiaY) * Time.deltaTime;
-
-            var result = _characterMovementBody.Move(transform.position, Player_Movement.x, Player_Movement.y);
+            DoDetailedMove(Player_Movement);
         }
+
+        private void DoDetailedMove(Vector2 moveOffset)
+        {
+            bool isPreviousGrounded = playerStatus.IsGrounded;
+            var result = _characterMovementBody.Move(transform.position, moveOffset.x, moveOffset.y);
+            playerStatus.IsGrounded = result.isGrounded;
+            playerStatus.PlayerGroundedFrame = !isPreviousGrounded && result.isGrounded;
+            if (playerStatus.IsGrounded)
+            {
+                playerStatus.Object_InertiaY = 0f;
+            }
+        }
+
         private void Player_Move_SlowY(bool Hold_Gravity)
         {
             if (Hold_Gravity)
                 _ = playerStatus.Object_InertiaY <= -playerStatus.MaxMoveSpeedY ? playerStatus.Object_InertiaY = -playerStatus.MaxMoveSpeedY : playerStatus.Object_InertiaY -= playerStatus.MaxMoveSpeedY;
             else playerStatus.Object_InertiaY = 0;
         }
+
         private void Player_Move_SlowX()
         {
             if (playerStatus.Object_InertiaX != 0)
