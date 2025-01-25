@@ -5,6 +5,7 @@ namespace Bubble
     public class Player_Input : MonoBehaviour
     {
         bool Player_Is_Move = false, Player_Is_Dash = false;
+        Vector3 A;
         [SerializeField] SpriteRenderer Player_Image;
 
         [SerializeField] private Movement_Ctrl movement_Ctrl;
@@ -24,11 +25,11 @@ namespace Bubble
             {
                 if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.LeftArrow))/*+z*/
                 {
-                    Player_Is_Move = movement_Ctrl.GetInput_Date(0, 0, 1);
+                    Player_Is_Move = movement_Ctrl.GetInput_Date(Vector3.forward);
                 }
                 if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.RightArrow))/*-z*/
                 {
-                    Player_Is_Move = movement_Ctrl.GetInput_Date(0, 0, -1);
+                    Player_Is_Move = movement_Ctrl.GetInput_Date(-Vector3.forward);
                 }
                 if (Input.GetKey(KeyCode.Space))/*MoveUp*/
                 {
