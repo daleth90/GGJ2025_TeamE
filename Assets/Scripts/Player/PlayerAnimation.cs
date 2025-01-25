@@ -33,7 +33,7 @@ namespace Bubble
         {
             transform.localScale = _playerStatus.FaceRight ? new Vector3(1, 1, 1) : new Vector3(-1, 1, 1);
 
-            if (_playerStatus.Object_InertiaX != 0f)
+            if (_playerStatus.VelocityX != 0f)
             {
                 _characterAnimator.SetBool("Walk", true);
                 //_bubbleAnimator.SetBool("Walk", true);
@@ -44,7 +44,7 @@ namespace Bubble
                 //_bubbleAnimator.SetBool("Walk", false);
             }
 
-            if (_playerStatus.Player_Is_Dash)
+            if (_playerStatus.PlayerDashFrame)
             {
                 _audioManager.PlaySound("SFX_PlayerDash");
             }
@@ -54,7 +54,7 @@ namespace Bubble
                 _audioManager.PlaySound("SFX_PlayerOnGround");
             }
 
-            if (_playerStatus.Object_InertiaX != 0f)
+            if (_playerStatus.VelocityX != 0f)
             {
                 if (_soundLoopMove == null)
                 {

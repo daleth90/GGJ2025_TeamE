@@ -49,6 +49,12 @@ namespace Bubble
             _groundLayerMask = LayerMask.GetMask(layerNames);
         }
 
+        public void ApplyPosition(Vector2 position)
+        {
+            _position = position;
+            transform.position = position;
+        }
+
         public CharacterMovementResult Move(Vector2 position, float deltaX, float deltaY, bool applyPosition = true)
         {
             // Important: Synchronize properties for internal usage
@@ -80,8 +86,7 @@ namespace Bubble
             Vector2 newPosition = _position + translate;
             if (applyPosition)
             {
-                _position = newPosition;
-                transform.position = newPosition;
+                ApplyPosition(newPosition);
             }
 
             var result = new CharacterMovementResult
