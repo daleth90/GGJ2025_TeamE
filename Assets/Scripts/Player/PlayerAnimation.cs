@@ -12,6 +12,10 @@ namespace Bubble
         [SerializeField]
         private Animator _bubbleAnimator;
 
+        [Space]
+        [SerializeField]
+        private float _bubbleMinScale = 0.5f;
+
         private IAudioManager _audioManager;
         private AudioSource _soundLoopMove;
 
@@ -69,6 +73,15 @@ namespace Bubble
                     _soundLoopMove = null;
                 }
             }
+
+            RefreshBubbleScale();
+        }
+
+        private void RefreshBubbleScale()
+        {
+            float percentage = _playerStatus.oxygen / _playerStatus.MaxOxygen;
+            float scale = Mathf.Lerp(_bubbleMinScale, 1f, percentage);
+            _bubbleAnimator.transform.localScale = new Vector3(scale, scale, 1f);
         }
     }
 }
