@@ -16,7 +16,7 @@ namespace Bubble
         {
             if (collision.collider.CompareTag("Player"))
             {
-                _audioManager.PlaySound("SFX_Vine");
+                _audioManager.PlaySound("SFX_DashVine");
             }
         }
     }
