@@ -1,0 +1,23 @@
+{
+    "name": "Physalia.Utilities.Editor.Addressables",
+    "rootNamespace": "Physalia",
+    "references": [
+        "GUID:8b39e573a0170bd458e10b43af3c0189",
+        "GUID:762da0f3a646be64d946d2b6b10e1ddc",
+        "GUID:84651a3751eca9349aac36a66bba901b",
+        "GUID:5c1ff9bd975acec488150743d53a93ca",
+        "GUID:9e24947de15b9834991c9d8411ea37cf",
+        "GUID:69448af7b92c7f342b298e06a37122aa"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
