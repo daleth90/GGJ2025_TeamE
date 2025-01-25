@@ -13,7 +13,7 @@ namespace Bubble
         private void Start()
         {
             if (Player_Image == null) Player_Image = this.gameObject.GetComponent<SpriteRenderer>();
-            movement_Ctrl.Start_Movement_Ctrl(playerStatus);
+            movement_Ctrl.Start_Movement_Ctrl(playerStatus, Hold_Gravity);
         }
         private void Update() { Player_Input_Ctrl_(); }
         public void Player_Input_Ctrl_()
@@ -37,7 +37,7 @@ namespace Bubble
                 if (Input.GetKeyDown(KeyCode.LeftShift)) playerStatus.Player_Is_Dash = true;/*Dash*/
                 if (Player_Is_Move || playerStatus.Player_Is_Dash)
                 {
-                    playerStatus.Player_Is_Dash = Player_Is_Move = movement_Ctrl.Player_Move(Player_Image, playerStatus.Player_Is_Dash);
+                    playerStatus.Player_Is_Dash = Player_Is_Move = movement_Ctrl.Player_Move(Player_Image, playerStatus.Player_Is_Dash, Hold_Gravity);
                     Image_flipX();
                 }
                 else movement_Ctrl.Player_Move(Hold_Gravity, Player_Image);
