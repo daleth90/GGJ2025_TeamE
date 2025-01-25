@@ -36,7 +36,6 @@ namespace Bubble
         public float MaxMoveSpeedY { get => maxMoveSpeedY; set => maxMoveSpeedY = value; }
         public float MaxSpeed { get => maxSpeed; set => maxSpeed = value; }
         public float SpeedUp { get => speedUp; set => speedUp = value; }
-        public Vector2 Object_Inertia { get => object_Inertia; set => object_Inertia = value; }
         public float Object_InertiaX { get => object_Inertia.x; set => object_Inertia.x = value; }
         public float Object_InertiaY { get => object_Inertia.y; set => object_Inertia.y = value; }
 

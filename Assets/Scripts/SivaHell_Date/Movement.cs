@@ -3,7 +3,10 @@ namespace Bubble
 {
     public class Movement_Ctrl : MonoBehaviour
     {
-        Vector2 MoveDate = new (0, 0), NullVec2 = new(0, 0);
+        [SerializeField]
+        private CharacterMovementBody _characterMovementBody;
+
+        Vector2 MoveDate = new(0, 0), NullVec2 = new(0, 0);
         Vector3 Player_Movement = new(0, 0, 0), NullVec3 = new(0, 0, 0);
         private PlayerStatus playerStatus;
 
@@ -22,34 +25,49 @@ namespace Bubble
                 if (MoveDate.x != 0) MoveDate.x *= 2 * 2;/*Player is on Move*/
                 else MoveDate.x += Iamge.flipX ? -2 : 2;/*Player just Input.(Dash)*/
                 Player_Movement = MoveDate;
-                this.transform.position += Player_Movement;/*Dash movement.*/
             }
             else
             {
-                playerStatus.Object_Inertia += MoveDate;
+                playerStatus.Object_InertiaX += MoveDate.x;
+                playerStatus.Object_InertiaY += MoveDate.y;
                 playerStatus.Object_InertiaX = Mathf.Clamp(playerStatus.Object_InertiaX, -playerStatus.MaxMoveSpeedX, playerStatus.MaxMoveSpeedX);
                 playerStatus.Object_InertiaY = Mathf.Clamp(playerStatus.Object_InertiaY, -playerStatus.MaxMoveSpeedY, playerStatus.MaxMoveSpeedY);
-                Player_Movement = playerStatus.Object_Inertia;
-                this.transform.position += Player_Movement * Time.deltaTime;/*Player in Run.*/
+                Player_Movement = new Vector2(playerStatus.Object_InertiaX, playerStatus.Object_InertiaY) * Time.deltaTime;
             }
+
+            var result = _characterMovementBody.Move(transform.position, Player_Movement.x, Player_Movement.y);
+
             MoveDate = NullVec2;/*close old.*/
             Player_Movement = NullVec3;/*close old.*/
             return false;/*close old.*/
         }
         public void Player_Move(bool Hold_Gravity, SpriteRenderer Iamge)/*Player not use Any Button.*/
         {
-            if (playerStatus.Object_Slow_ForceX != 0)
+            if (playerStatus.Object_InertiaX != 0)
             {
-                bool X = Iamge.flipX;
-                float MoveX = Mathf.Abs(playerStatus.Object_InertiaX);
-                if ((MoveX -= playerStatus.Object_Slow_ForceX) <= 0) playerStatus.Object_InertiaX = 0;
-                else playerStatus.Object_InertiaX = X ? MoveX : -MoveX;
+                if (Iamge.flipX) // -x
+                {
+                    playerStatus.Object_InertiaX += playerStatus.Object_Slow_ForceX;
+                    if (playerStatus.Object_InertiaX >= 0)
+                    {
+                        playerStatus.Object_InertiaX = 0;
+                    }
+                }
+                else  // +x
+                {
+                    playerStatus.Object_InertiaX -= playerStatus.Object_Slow_ForceX;
+                    if (playerStatus.Object_InertiaX <= 0)
+                    {
+                        playerStatus.Object_InertiaX = 0;
+                    }
+                }
             }
             if (Hold_Gravity)
                 _ = playerStatus.Object_InertiaY <= -playerStatus.MaxMoveSpeedY ? playerStatus.Object_InertiaY = -playerStatus.MaxMoveSpeedY : playerStatus.Object_InertiaY -= playerStatus.MaxMoveSpeedY;
             else playerStatus.Object_InertiaY = 0;
-            Player_Movement = playerStatus.Object_Inertia;
-            this.transform.position += Player_Movement * Time.deltaTime;
+            Player_Movement = new Vector2(playerStatus.Object_InertiaX, playerStatus.Object_InertiaY) * Time.deltaTime;
+
+            var result = _characterMovementBody.Move(transform.position, Player_Movement.x, Player_Movement.y);
         }
         //private void Move_Speed_confirm()
         //{
