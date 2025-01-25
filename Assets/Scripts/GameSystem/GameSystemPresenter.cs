@@ -1,3 +1,4 @@
+using Physalia;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,6 +11,8 @@ namespace Bubble
         [SerializeField] private GameSystemView gameSystemView;
         [SerializeField] private LevelManager levelManager;
         [SerializeField] private PlayerStatus playerStatus;
+
+        private IAudioManager _audioManager;
 
         private void AddGameStartAction()
         {
@@ -64,8 +67,9 @@ namespace Bubble
 
         private void Awake()
         {
+            _audioManager = ServiceLocator.Resolve<IAudioManager>();
             gameSystemModel.Init();
-            gameSystemView.Init(levelManager);
+            gameSystemView.Init(_audioManager, levelManager);
             levelManager.Init(playerStatus);
 
             AddGameStartAction();

@@ -16,6 +16,7 @@ namespace Bubble
 
         private PlayerStatus playerStatus;
 
+        public int LevelNumber => leveNumber;
 
         public void Init(PlayerStatus playerStatus)
         {
