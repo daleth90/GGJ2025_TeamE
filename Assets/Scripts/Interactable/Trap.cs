@@ -11,7 +11,7 @@ namespace Bubble
         {
             if (collider.CompareTag("Player"))
             {
-                collider.GetComponent<IPlayerOxygenStatus>().oxygen -= _damage;
+                collider.GetComponent<PlayerStatus>().oxygen -= _damage;
             }
         }
     }

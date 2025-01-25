@@ -2,18 +2,18 @@ using UnityEngine;
 
 namespace Bubble
 {
-    public class OxygenCylinder : MonoBehaviour
+    public class Key : MonoBehaviour
     {
         [SerializeField]
-        private int _recoveryAmount;
+        private KeyInteractable _target;
 
         private void OnTriggerEnter2D(Collider2D collider)
         {
             if (collider.CompareTag("Player"))
             {
-                collider.GetComponent<IPlayerOxygenStatus>().oxygen += _recoveryAmount;
+                _target.Interact();
                 // Play Sound Effect...
-                Destroy(gameObject);
+                gameObject.SetActive(false);
             }
         }
     }
