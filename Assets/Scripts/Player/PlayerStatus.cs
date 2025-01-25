@@ -4,8 +4,8 @@ namespace Bubble
 {
     public class PlayerStatus : MonoBehaviour
     {
-        [SerializeField] private float maxMoveSpeedY = 0;
-        [SerializeField] private float maxMoveSpeedX = 0;
+        [SerializeField] private float maxMoveSpeedY = 10;
+        [SerializeField] private float maxMoveSpeedX = 10;
         [SerializeField] private float maxSpeed = 0;
 
 

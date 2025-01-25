@@ -13,6 +13,7 @@ namespace Bubble
         private void Start()
         {
             if (Player_Image == null) Player_Image = this.gameObject.GetComponent<SpriteRenderer>();
+            movement_Ctrl.Start_Movement_Ctrl(playerStatus);
         }
         private void Update() { Player_Input_Ctrl_(); }
         public void Player_Input_Ctrl_()
