@@ -1,29 +1,22 @@
+using Physalia;
 using UnityEngine;
 
 namespace Bubble
 {
     public class Vine : MonoBehaviour
     {
-        private Collider2D _collider;
+        private IAudioManager _audioManager;
 
-        private void Start()
+        private void Awake()
         {
-            _collider = GetComponent<Collider2D>();
+            _audioManager = ServiceLocator.Resolve<IAudioManager>();
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.collider.CompareTag("Player"))
             {
-                _collider.enabled = !collision.collider.GetComponent<PlayerStatus>().Player_Is_Dash;
-            }
-        }
-
-        private void OnCollisionExit2D(Collision2D collision)
-        {
-            if (collision.collider.CompareTag("Player"))
-            {
-                _collider.enabled = true;
+                _audioManager.PlaySound("SFX_Vine");
             }
         }
     }
