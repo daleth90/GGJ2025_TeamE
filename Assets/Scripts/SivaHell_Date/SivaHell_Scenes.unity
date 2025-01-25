@@ -228,6 +228,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 90}
+--- !u!114 &957342322 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2228946617322580570, guid: 7ca281ad1e15411468f615af8c05cfb2, type: 3}
+  m_PrefabInstance: {fileID: 8187779623835539297}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ca1be5639b783448b69aad1e792ed5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1587705154
 GameObject:
   m_ObjectHideFlags: 0
@@ -470,6 +481,10 @@ PrefabInstance:
       propertyPath: maxMoveSpeedY
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4016139999966219866, guid: 7ca281ad1e15411468f615af8c05cfb2, type: 3}
+      propertyPath: player_Input_Ctrl
+      value: 
+      objectReference: {fileID: 957342322}
     - target: {fileID: 4016139999966219866, guid: 7ca281ad1e15411468f615af8c05cfb2, type: 3}
       propertyPath: object_Slow_ForceX
       value: 10

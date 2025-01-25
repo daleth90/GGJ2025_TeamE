@@ -2,9 +2,9 @@ using UnityEngine;
 
 namespace Bubble
 {
-    public class Player_Input : MonoBehaviour
+    public class Player_Input_Ctrl : MonoBehaviour
     {
-        bool Player_Is_Move = false;
+        private bool Player_Is_Move = false;
         [SerializeField] SpriteRenderer Player_Image;
 
         [SerializeField] private Movement_Ctrl movement_Ctrl;
