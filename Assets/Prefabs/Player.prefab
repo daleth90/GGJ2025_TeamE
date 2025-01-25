@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7212429420882262289}
   - component: {fileID: 4016139999966219866}
   - component: {fileID: 3099289850384173761}
+  - component: {fileID: 1710706193799994828}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -104,7 +105,7 @@ MonoBehaviour:
   movement_Ctrl: {fileID: 7212429420882262289}
   playerStatus: {fileID: 4016139999966219866}
   Can_Move: 1
-  Hold_Gravity: 0
+  Hold_Gravity: 1
 --- !u!114 &7212429420882262289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,6 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5944df7a34b63040815f629b1eb5cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _characterMovementBody: {fileID: 1710706193799994828}
 --- !u!114 &4016139999966219866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,8 +136,8 @@ MonoBehaviour:
   maxSpeed: 100
   speedUp: 0
   object_Inertia: {x: 0, y: 0}
-  object_Slow_ForceX: 0
-  object_Slow_ForceY: 0
+  object_Slow_ForceX: 10
+  object_Slow_ForceY: 10
   player_Is_Dash: 0
 --- !u!61 &3099289850384173761
 BoxCollider2D:
@@ -182,3 +184,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1710706193799994828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9168269598283705433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 469eb9b8ccbad6e44ade3a3fdf1b9125, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _boxSize: {x: 1, y: 1}
+  _skinWidth: 0.01
+  _slopeLimit: 60
+  _distanceBetweenRays: 0.5
+  _pinching: 0.5
+  _debug: 1
