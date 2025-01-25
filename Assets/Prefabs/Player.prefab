@@ -104,6 +104,7 @@ MonoBehaviour:
   movement_Ctrl: {fileID: 7212429420882262289}
   playerStatus: {fileID: 4016139999966219866}
   Can_Move: 1
+  Hold_Gravity: 0
 --- !u!114 &7212429420882262289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,6 +132,11 @@ MonoBehaviour:
   maxMoveSpeedY: 10
   maxMoveSpeedX: 10
   maxSpeed: 100
+  speedUp: 0
+  object_Inertia: {x: 0, y: 0}
+  object_Slow_ForceX: 0
+  object_Slow_ForceY: 0
+  player_Is_Dash: 0
 --- !u!61 &3099289850384173761
 BoxCollider2D:
   m_ObjectHideFlags: 0
