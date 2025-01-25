@@ -181,7 +181,7 @@ MonoBehaviour:
   _soundSource: {fileID: 7470690407454871339}
   _soundLoopSourcePrefab: {fileID: 3466523197226893052, guid: c9cf39a58675bec4f88c44ba183766fb, type: 3}
   _musicMute: 0
-  _musicVolume: 1
+  _musicVolume: 0.4
   _soundMute: 0
   _soundVolume: 1
   _currentMusicSource: {fileID: 0}
@@ -237,7 +237,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -365,7 +365,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
