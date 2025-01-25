@@ -45,7 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSystemView:
-    <endUI>k__BackingField:
-      <quitButton>k__BackingField: {fileID: 0}
-      <restartButton>k__BackingField: {fileID: 0}
-      ui: {fileID: 0}
+    <endUI>k__BackingField: {fileID: 0}
+  levelManager:
+    levelList:
+    - {fileID: 4778233289683460042, guid: e1f932d3ce2fda94eb28c0650beee927, type: 3}
+    - {fileID: 4778233289683460042, guid: 7259809dd94dde846b08d2f5f2c9c922, type: 3}
+    - {fileID: 4778233289683460042, guid: b76ad5d849951314aa27f287e15e28c1, type: 3}

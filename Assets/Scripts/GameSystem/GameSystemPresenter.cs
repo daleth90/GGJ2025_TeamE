@@ -8,12 +8,25 @@ namespace Bubble
     {
         [SerializeField] private GameSystemModel gameSystemModel;
         [SerializeField] private GameSystemView gameSystemView;
+        [SerializeField] private LevelManager levelManager;
+        [SerializeField] private PlayerStatus playerStatus;
 
-
-        private void AddEndUI()
+        private void AddGameStartAction()
         {
             gameSystemModel.GameStartAction += () => gameSystemView.endUI.ShowEndUI(false);
+            gameSystemModel.GameStartAction += levelManager.ReStartLevel;
+            gameSystemModel.GameStartAction += levelManager.PlayerReStorePosition;
+        }
+
+        private void AddGameEndAction()
+        {
             gameSystemModel.GameEndAction += () => gameSystemView.endUI.ShowEndUI(true);
+        }
+
+        private void AddEndUIButtonEvent()
+        {
+            gameSystemView.endUI.restartButton.onClick.AddListener(gameSystemModel.GameStartAction);
+            gameSystemView.endUI.quitButton.onClick.AddListener(() => SceneManager.LoadScene("Menu"));
         }
 
         private void AddGameSystemModelLog()
@@ -26,13 +39,12 @@ namespace Bubble
         {
             gameSystemModel.Init();
             gameSystemView.Init();
+            levelManager.Init(playerStatus);
 
-            AddEndUI();
-
+            AddGameStartAction();
+            AddGameEndAction();
+            AddEndUIButtonEvent();
             AddGameSystemModelLog();
-
-            gameSystemView.endUI.restartButton.onClick.AddListener(gameSystemModel.GameStartAction);
-            gameSystemView.endUI.quitButton.onClick.AddListener(() => SceneManager.LoadScene("Menu"));
 
             gameSystemModel.GameStartAction();
         }

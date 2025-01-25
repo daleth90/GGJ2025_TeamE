@@ -25,6 +25,5 @@ namespace Bubble
         public float MaxMoveSpeedX { get => maxMoveSpeedX; set => maxMoveSpeedX = value; }
         public float MaxMoveSpeedY { get => maxMoveSpeedY; set => maxMoveSpeedY = value; }
         public float MaxSpeed { get => maxSpeed; set => maxSpeed = value; }
-
     }
 }

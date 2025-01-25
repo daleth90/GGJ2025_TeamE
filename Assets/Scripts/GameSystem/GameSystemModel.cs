@@ -12,7 +12,6 @@ namespace Bubble
         public UnityAction GameStartAction;
         public UnityAction GameEndAction;
 
-
         public void Init()
         {
             instance = this;
@@ -20,12 +19,12 @@ namespace Bubble
 
         public void GameStartLog()
         {
-            UnityEngine.Debug.Log("GameStart");
+            Debug.Log("GameStart");
         }
 
         public void GameEndLog()
         {
-            UnityEngine.Debug.Log("GameEnd");
+            Debug.Log("GameEnd");
         }
     }
 }
