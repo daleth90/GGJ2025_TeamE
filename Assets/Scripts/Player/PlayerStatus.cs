@@ -7,6 +7,7 @@ namespace Bubble
     {
         [SerializeField] private Player_Input_Ctrl player_Input_Ctrl;
 
+        [SerializeField] private bool faceRight = true;
         [SerializeField] private float maxMoveSpeedY = 10;
         [SerializeField] private float maxMoveSpeedX = 10;
 
@@ -32,6 +33,7 @@ namespace Bubble
         public event System.Action<int> OnOxygenChanged;
         public event UnityAction DeathAction;
 
+        public bool FaceRight { get => faceRight; set => faceRight = value; }
         public float MaxMoveSpeedX { get => maxMoveSpeedX; set => maxMoveSpeedX = value; }
         public float MaxMoveSpeedY { get => maxMoveSpeedY; set => maxMoveSpeedY = value; }
         public float Object_InertiaX { get => object_Inertia.x; set => object_Inertia.x = value; }
