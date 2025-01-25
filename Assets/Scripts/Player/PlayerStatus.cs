@@ -9,8 +9,7 @@ namespace Bubble
 
         [SerializeField] private float maxMoveSpeedY = 10;
         [SerializeField] private float maxMoveSpeedX = 10;
-        [SerializeField] private float maxSpeed = 0;
-        [SerializeField] private float speedUp = 0;/*疊加速度*/
+
         [SerializeField] private Vector2 object_Inertia = new(0, 0);/*物體慣性移動速度*/
         [SerializeField] private float object_Slow_ForceX = 0;/*減緩移動速度X軸*/
         [SerializeField] private float object_Slow_ForceY = 0;/*減緩移動速度Y軸*/
@@ -35,8 +34,6 @@ namespace Bubble
 
         public float MaxMoveSpeedX { get => maxMoveSpeedX; set => maxMoveSpeedX = value; }
         public float MaxMoveSpeedY { get => maxMoveSpeedY; set => maxMoveSpeedY = value; }
-        public float MaxSpeed { get => maxSpeed; set => maxSpeed = value; }
-        public float SpeedUp { get => speedUp; set => speedUp = value; }
         public float Object_InertiaX { get => object_Inertia.x; set => object_Inertia.x = value; }
         public float Object_InertiaY { get => object_Inertia.y; set => object_Inertia.y = value; }
         public float Object_Slow_ForceX { get => object_Slow_ForceX; set => object_Slow_ForceX = value; }
