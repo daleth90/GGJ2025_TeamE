@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Bubble
 {
-    public class Player_Input_Ctrl : MonoBehaviour
+    public class Player_Input : MonoBehaviour
     {
         bool Player_Is_Move = false, Player_Is_Dash = false;
         [SerializeField] SpriteRenderer Player_Image;
@@ -38,9 +38,5 @@ namespace Bubble
                 if (Player_Is_Move || Player_Is_Dash) Player_Is_Dash = Player_Is_Move = movement_Ctrl.Player_Move(Player_Image, Player_Is_Dash);
             }
         }
-    }
-    enum Player_
-    {
-        OnRun, Jump
     }
 }
