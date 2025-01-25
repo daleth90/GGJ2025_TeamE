@@ -22,19 +22,23 @@ namespace Bubble
                 if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))/*+z*/
                 {
                     Player_Is_Move = movement_Ctrl.GetInput_Date(1,0);
+                    playerStatus.oxygen -= playerStatus.moveOxygenCost * Time.deltaTime;
                 }
                 if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))/*-z*/
                 {
                     Player_Is_Move = movement_Ctrl.GetInput_Date(-1,0);
+                    playerStatus.oxygen -= playerStatus.moveOxygenCost * Time.deltaTime;
                 }
                 if (Input.GetKey(KeyCode.Space))/*MoveUp*/
                 {
                     Player_Is_Move = movement_Ctrl.GetInput_Date(0,1);
+                    playerStatus.oxygen -= playerStatus.upOxygenCost * Time.deltaTime;
                 }
                 if (Input.GetKeyDown(KeyCode.LeftShift))
                 {
                     playerStatus.Player_Is_Dash = true;/*Dash*/
                     characterMovementBody.SetLayerMask("Ground");
+                    playerStatus.oxygen -= playerStatus.upOxygenCost;
                 }
 
                 if (Player_Is_Move || playerStatus.Player_Is_Dash)

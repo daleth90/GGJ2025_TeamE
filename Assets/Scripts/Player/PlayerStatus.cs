@@ -6,6 +6,10 @@ namespace Bubble
     public class PlayerStatus : MonoBehaviour
     {
         [SerializeField] private Player_Input_Ctrl player_Input_Ctrl;
+        [field: SerializeField] public float moveOxygenCost { get; private set; } = 1f;
+        [field: SerializeField] public float upOxygenCost { get; private set; } = 1.5f;
+        [field: SerializeField] public float dashOxygenCost { get; private set; } = 2f;
+
 
         [SerializeField] private bool faceRight = true;
         [SerializeField] private float maxMoveSpeedY = 10;
