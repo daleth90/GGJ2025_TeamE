@@ -45,7 +45,9 @@ MonoBehaviour:
   m_overridePlayerVersion: '[UnityEditor.PlayerSettings.bundleVersion]'
   m_GroupAssets:
   - {fileID: 11400000, guid: 332c146afbdd55a4e88d357e06cdf135, type: 2}
+  - {fileID: 11400000, guid: 21723da2a71216d45ad40da5b94a830b, type: 2}
   - {fileID: 11400000, guid: 38e55982d1091c14ca07bc97696fa8c3, type: 2}
+  - {fileID: 11400000, guid: 3cdffbe63b3faf24fbd0faf36b7e4b79, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1

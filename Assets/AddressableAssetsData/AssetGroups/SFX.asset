@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: SFX
+  m_EditorClassIdentifier: 
+  m_GroupName: SFX
+  m_Data:
+    m_SerializedData: []
+  m_GUID: fb935822e63dfd44698858533f131c4f
+  m_SerializeEntries:
+  - m_GUID: 2b681899fda2c7a41a2a2e0c2c206f92
+    m_Address: SFX_PlayerOnGround
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 413aaf693ce03b349a3b5d5db56af5c0
+    m_Address: SFX_AirBump
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7404dc63ae6afc4459acc402514d36e0
+    m_Address: SFX_Goal
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 76b254337fea9364ba5b9c281a5462df
+    m_Address: SFX_UIClick
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 76d8ee1771d4d9945b85a9a450d80a67
+    m_Address: SFX_PlayerDeath
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8ed2d5fcc7721244ea1288a01aa91787
+    m_Address: SFX_DashVine
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 959f2c5a9d57aac41ac05a5a04d6ab0a
+    m_Address: SFX_MonsterStep
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: beaa3e0ff62c2ab4cb52a84364147038
+    m_Address: SFX_PlayerDash
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f379ddbd98a95db48968886d832c9c7d
+    m_Address: SFX_PlayerMove
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 276cd4d929b94ff479c02c86acf6405d, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 23200bdf3a3b2494a8944686faf2de04, type: 2}
+    - {fileID: 11400000, guid: 55dc7f9db8cb8ae4a9b57517cd7b8cd3, type: 2}
