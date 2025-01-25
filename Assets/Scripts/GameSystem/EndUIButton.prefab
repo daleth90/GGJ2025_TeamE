@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4741800899735806277}
   - component: {fileID: 7024250056351536292}
   - component: {fileID: 9057319111029305860}
-  - component: {fileID: 6823228828203936241}
+  - component: {fileID: 2173062700150110362}
   m_Layer: 5
   m_Name: EndUIButton
   m_TagString: Untagged
@@ -77,7 +77,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 0.25
---- !u!114 &6823228828203936241
+--- !u!114 &2173062700150110362
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -86,7 +86,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2061996353580637133}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 154c31faa0315ff42bb733d31c007b1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
