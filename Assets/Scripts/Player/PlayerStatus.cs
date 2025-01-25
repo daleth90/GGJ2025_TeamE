@@ -7,7 +7,10 @@ namespace Bubble
         [SerializeField] private float maxMoveSpeedY = 10;
         [SerializeField] private float maxMoveSpeedX = 10;
         [SerializeField] private float maxSpeed = 0;
-
+        public float MaxMoveSpeedX { get => maxMoveSpeedX; set => maxMoveSpeedX = value; }
+        public float MaxMoveSpeedY { get => maxMoveSpeedY; set => maxMoveSpeedY = value; }
+        public float MaxSpeed { get => maxSpeed; set => maxSpeed = value; }
+        public bool isInDash;
 
         private int _oxygen;
         public int oxygen
@@ -21,10 +24,5 @@ namespace Bubble
         }
 
         public event System.Action<int> OnOxygenChanged;
-
-        public float MaxMoveSpeedX { get => maxMoveSpeedX; set => maxMoveSpeedX = value; }
-        public float MaxMoveSpeedY { get => maxMoveSpeedY; set => maxMoveSpeedY = value; }
-        public float MaxSpeed { get => maxSpeed; set => maxSpeed = value; }
-
     }
 }

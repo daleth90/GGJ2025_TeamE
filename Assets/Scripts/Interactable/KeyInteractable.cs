@@ -1,6 +1,6 @@
 namespace Bubble
 {
-    public class KeyInteractable : Interactable
+    public class KeyInteractable : Consumable
     {
         public virtual void InteractWithKey() {}
     }

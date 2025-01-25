@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Bubble
 {
-    public class Key : MonoBehaviour
+    public class Key : Consumable
     {
         [SerializeField]
         private KeyInteractable _target;
