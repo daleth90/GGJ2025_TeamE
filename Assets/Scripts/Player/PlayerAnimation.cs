@@ -49,6 +49,11 @@ namespace Bubble
                 _audioManager.PlaySound("SFX_PlayerDash");
             }
 
+            if (_playerStatus.PlayerGroundedFrame)
+            {
+                _audioManager.PlaySound("SFX_PlayerOnGround");
+            }
+
             if (_playerStatus.Object_InertiaX != 0f)
             {
                 if (_soundLoopMove == null)
