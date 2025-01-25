@@ -23,7 +23,7 @@ namespace Bubble
 
         private void Start()
         {
-            //_audioManager.PlayMusic("MainTheme", 1f);
+            _audioManager.PlayMusic("BGM_Title", 1f);
         }
 
         public async UniTaskVoid OnStartClicked()
@@ -31,6 +31,7 @@ namespace Bubble
             if (!isStartClicked)
             {
                 isStartClicked = true;
+                _audioManager.StopMusic(0.5f);
                 await ScreenFader.Instance.FadeInOutProcess(() =>
                 {
                     SceneManager.LoadScene("Game");
