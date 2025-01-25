@@ -11,7 +11,7 @@ namespace Bubble
         [SerializeField] bool Can_Move = true, Hold_Gravity = true;
         private void Start()
         {
-            movement_Ctrl.Start_Movement_Ctrl(playerStatus, Hold_Gravity);
+            movement_Ctrl.Start_Movement_Ctrl(playerStatus);
         }
         private void Update() { Player_Input_Ctrl_(); }
         public void Player_Input_Ctrl_()

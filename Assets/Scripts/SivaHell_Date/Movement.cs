@@ -10,7 +10,7 @@ namespace Bubble
         Vector3 Player_Movement = new(0, 0, 0), NullVec3 = new(0, 0, 0);
         private PlayerStatus playerStatus;
         
-        public void Start_Movement_Ctrl(PlayerStatus playerStatus, bool Hold_Gravity)
+        public void Start_Movement_Ctrl(PlayerStatus playerStatus)
         {
             this.playerStatus = playerStatus;
             Debug.Log(" *MoveCtrl is Start.\nPlayer Input (D) => +,\n(A) => -,\n(Space) => MoveUp,\n(W) => Add Bubble,\n(Shift) => Dash,(Shift + D or A) => Big Dash");
