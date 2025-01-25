@@ -6,6 +6,8 @@ namespace Bubble
     [Serializable]
     public class LevelManager
     {
+        public static LevelManager instance { get; private set; }
+
         [SerializeField] private Level[] levelList;
 
         public Level currentLevel { get; private set; }
@@ -14,8 +16,10 @@ namespace Bubble
 
         private PlayerStatus playerStatus;
 
+
         public void Init(PlayerStatus playerStatus)
         {
+            instance = this;
             this.playerStatus = playerStatus;
         }
 
@@ -43,14 +47,13 @@ namespace Bubble
             }
             else
             {
-                if(currentLevel != null)
+                if (currentLevel == null)
                 {
-                    currentLevel.Init();
-                    return;
+                    currentLevel = UnityEngine.Object.Instantiate(levelList[targetLevelNumber - 1]);
                 }
-
-                currentLevel = UnityEngine.Object.Instantiate(levelList[targetLevelNumber - 1]);
             }
+
+            currentLevel.Init(playerStatus);
         }
 
         public void PlayerReStorePosition()
