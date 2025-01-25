@@ -15,6 +15,7 @@ namespace Bubble
         [SerializeField] private float maxMoveSpeedX = 10f;
         [SerializeField] private float maxMoveSpeedY = 5f;
         [SerializeField] private float dashSpeed = 20f;
+        [SerializeField] private float dashDuration = 0.2f;
 
         [Space]
         [SerializeField] private float accelerationX = 4f;
@@ -30,7 +31,8 @@ namespace Bubble
 
         [Space]
         [SerializeField] private float _oxygen;
-        [SerializeField] private Vector2 _velocity = new(0, 0);
+        [SerializeField] private Vector2 _velocity;
+        [SerializeField] private float _dashTime;
 
         private bool isDeath;
 
@@ -59,9 +61,11 @@ namespace Bubble
 
         public bool FaceRight { get => faceRight; set => faceRight = value; }
         public bool IsGrounded { get => isGrounded; set => isGrounded = value; }
+        public bool IsDashing => Time.time - _dashTime < dashDuration;
 
         public float VelocityX { get => _velocity.x; set => _velocity.x = value; }
         public float VelocityY { get => _velocity.y; set => _velocity.y = value; }
+        public float DashTime { get => _dashTime; set => _dashTime = value; }
 
         public bool PlayerDashFrame { get => playerDashFrame; set => playerDashFrame = value; }
         public bool PlayerGroundedFrame { get => playerGroundedFrame; set => playerGroundedFrame = value; }

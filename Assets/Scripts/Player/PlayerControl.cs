@@ -24,37 +24,39 @@ namespace Bubble
                 return;
             }
 
-            if (Input.GetKeyDown(KeyCode.LeftShift))  // Dash
+            if (!playerStatus.IsDashing &&
+                Input.GetKeyDown(KeyCode.LeftShift))  // Dash
             {
+                playerStatus.DashTime = Time.time;
                 playerStatus.PlayerDashFrame = true;
-                characterMovementBody.SetLayerMask("Ground");
-            }
-            else
-            {
-                playerStatus.PlayerDashFrame = false;
-                characterMovementBody.SetLayerMask("Ground", "Vine");
+                playerStatus.oxygen -= playerStatus.dashOxygenCost;
             }
 
-            if (playerStatus.PlayerDashFrame)
+            if (playerStatus.IsDashing)
             {
-                playerStatus.oxygen -= playerStatus.dashOxygenCost;
-                UpdateInertialX();
-                if (playerStatus.FaceRight)
-                {
-                    playerStatus.VelocityX += playerStatus.DashSpeed;
-                }
-                else
-                {
-                    playerStatus.VelocityX -= playerStatus.DashSpeed;
-                }
+                characterMovementBody.SetLayerMask("Ground");
+                UpdateInertiaX_Dash();
             }
             else
             {
+                characterMovementBody.SetLayerMask("Ground", "Vine");
                 UpdateInertialY();
                 UpdateInertialX();
             }
 
             DoMovement();
+        }
+
+        private void UpdateInertiaX_Dash()
+        {
+            if (playerStatus.FaceRight)
+            {
+                playerStatus.VelocityX = playerStatus.DashSpeed;
+            }
+            else
+            {
+                playerStatus.VelocityX = -playerStatus.DashSpeed;
+            }
         }
 
         private void UpdateInertialY()
@@ -80,13 +82,10 @@ namespace Bubble
                 playerStatus.FaceRight = true;
                 playerStatus.oxygen -= playerStatus.moveOxygenCost * Time.deltaTime;
 
-                if (playerStatus.VelocityX <= playerStatus.MaxMoveSpeedX)
+                playerStatus.VelocityX += playerStatus.AccelerationX * Time.deltaTime;
+                if (playerStatus.VelocityX > playerStatus.MaxMoveSpeedX)
                 {
-                    playerStatus.VelocityX += playerStatus.AccelerationX * Time.deltaTime;
-                    if (playerStatus.VelocityX > playerStatus.MaxMoveSpeedX)
-                    {
-                        playerStatus.VelocityX = playerStatus.MaxMoveSpeedX;
-                    }
+                    playerStatus.VelocityX = playerStatus.MaxMoveSpeedX;
                 }
             }
             else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))  // Left
@@ -94,17 +93,25 @@ namespace Bubble
                 playerStatus.FaceRight = false;
                 playerStatus.oxygen -= playerStatus.moveOxygenCost * Time.deltaTime;
 
-                if (playerStatus.VelocityX >= -playerStatus.MaxMoveSpeedX)
+                playerStatus.VelocityX -= playerStatus.AccelerationX * Time.deltaTime;
+                if (playerStatus.VelocityX < -playerStatus.MaxMoveSpeedX)
                 {
-                    playerStatus.VelocityX -= playerStatus.AccelerationX * Time.deltaTime;
-                    if (playerStatus.VelocityX < -playerStatus.MaxMoveSpeedX)
-                    {
-                        playerStatus.VelocityX = -playerStatus.MaxMoveSpeedX;
-                    }
+                    playerStatus.VelocityX = -playerStatus.MaxMoveSpeedX;
                 }
             }
             else
             {
+                // For dash recover
+                if (playerStatus.VelocityX > playerStatus.MaxMoveSpeedX)
+                {
+                    playerStatus.VelocityX = playerStatus.MaxMoveSpeedX;
+                }
+                else if (playerStatus.VelocityX < -playerStatus.MaxMoveSpeedX)
+                {
+                    playerStatus.VelocityX = -playerStatus.MaxMoveSpeedX;
+                }
+
+                // Normal deceleration
                 if (playerStatus.VelocityX > 0)
                 {
                     playerStatus.VelocityX -= playerStatus.DecelerationX * Time.deltaTime;
