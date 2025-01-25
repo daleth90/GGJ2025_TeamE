@@ -9,7 +9,7 @@ namespace Bubble
 
         [SerializeField] private Movement_Ctrl movement_Ctrl;
         [SerializeField] private PlayerStatus playerStatus;
-        [SerializeField] bool Can_Move = true;
+        [SerializeField] bool Can_Move = true, Hold_Gravity = true;
         private void Start()
         {
             if (Player_Image == null) Player_Image = this.gameObject.GetComponent<SpriteRenderer>();
@@ -22,20 +22,20 @@ namespace Bubble
             {
                 if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.LeftArrow))/*+z*/
                 {
-                    Player_Is_Move = movement_Ctrl.GetInput_Date(Vector2.right);
+                    Player_Is_Move = movement_Ctrl.GetInput_Date(1,0);
                 }
                 if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.RightArrow))/*-z*/
                 {
-                    Player_Is_Move = movement_Ctrl.GetInput_Date(Vector2.left);
+                    Player_Is_Move = movement_Ctrl.GetInput_Date(-1,0);
                 }
                 if (Input.GetKey(KeyCode.Space))/*MoveUp*/
                 {
-                    Player_Is_Move = movement_Ctrl.GetInput_Date(Vector2.up);
+                    Player_Is_Move = movement_Ctrl.GetInput_Date(0,1);
                 }
                 if (Input.GetKeyDown(KeyCode.LeftShift)) playerStatus.Player_Is_Dash = true;/*Dash*/
                 if (Player_Is_Move || playerStatus.Player_Is_Dash)
                     playerStatus.Player_Is_Dash = Player_Is_Move = movement_Ctrl.Player_Move(Player_Image, playerStatus.Player_Is_Dash);
-                else movement_Ctrl.Player_Move();
+                else movement_Ctrl.Player_Move(Hold_Gravity);
                 if (Input.GetKeyDown(KeyCode.W))
                 {
                     Debug.Log("Add Bubble.");
