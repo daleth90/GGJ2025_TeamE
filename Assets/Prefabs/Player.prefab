@@ -325,7 +325,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3877611985496727370}
   - component: {fileID: 2228946617322580570}
-  - component: {fileID: 7212429420882262289}
   - component: {fileID: 4016139999966219866}
   - component: {fileID: 3099289850384173761}
   - component: {fileID: 1710706193799994828}
@@ -366,24 +365,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ca1be5639b783448b69aad1e792ed5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement_Ctrl: {fileID: 7212429420882262289}
   playerStatus: {fileID: 4016139999966219866}
-  Can_Move: 1
-  Hold_Gravity: 1
   characterMovementBody: {fileID: 1710706193799994828}
---- !u!114 &7212429420882262289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9168269598283705433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5944df7a34b63040815f629b1eb5cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _characterMovementBody: {fileID: 1710706193799994828}
+  canMove: 1
+  useGravity: 1
 --- !u!114 &4016139999966219866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,15 +382,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player_Input_Ctrl: {fileID: 2228946617322580570}
-  faceRight: 1
-  maxMoveSpeedY: 10
-  maxMoveSpeedX: 10
+  <moveOxygenCost>k__BackingField: 1
+  <upOxygenCost>k__BackingField: 1.5
+  <dashOxygenCost>k__BackingField: 5
   maxOxygen: 100
-  object_Inertia: {x: 0, y: 0}
-  object_Slow_ForceX: 10
-  object_Slow_ForceY: 5
-  player_Is_Dash: 0
+  maxMoveSpeedX: 10
+  maxMoveSpeedY: 10
+  dashSpeed: 20
+  accelerationX: 20
+  decelerationX: 10
+  gravity: 5
+  moveUpAcceleration: 2
+  faceRight: 1
+  isGrounded: 0
+  playerDashFrame: 0
+  playerGroundedFrame: 0
   _oxygen: 100
+  _velocity: {x: 0, y: 0}
 --- !u!61 &3099289850384173761
 BoxCollider2D:
   m_ObjectHideFlags: 0
