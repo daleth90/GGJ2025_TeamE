@@ -58,7 +58,7 @@ namespace Bubble
             {
                 if (_soundLoopMove == null)
                 {
-                    _soundLoopMove = _audioManager.PlaySoundLoop("SFX_PlayerMove");
+                    _soundLoopMove = _audioManager.PlaySoundLoop("SFX_PlayerMove", transform);
                 }
             }
             else
