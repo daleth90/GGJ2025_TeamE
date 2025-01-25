@@ -9,7 +9,7 @@ namespace Bubble
         Vector2 MoveDate = new(0, 0), NullVec2 = new(0, 0);
         Vector3 Player_Movement = new(0, 0, 0), NullVec3 = new(0, 0, 0);
         private PlayerStatus playerStatus;
-
+        
         public void Start_Movement_Ctrl(PlayerStatus playerStatus, bool Hold_Gravity)
         {
             this.playerStatus = playerStatus;
@@ -17,20 +17,20 @@ namespace Bubble
         }
         public bool GetInput_Date(float x, float y) { MoveDate += new Vector2(x, y); return true; }
         //public bool GetInput_Date(Vector2 Vec2) { MoveDate += Vec2; return true; }
-        public bool Player_Move(SpriteRenderer Iamge, bool Is_Dash,bool Hold_Gravity)/*Player is Use Button.*/
+        public bool Player_Move(bool Is_Dash,bool Hold_Gravity)/*Player is Use Button.*/
         {
             //Debug.Log($" *PlayerMove_Func();\n{MoveDate},{Is_Dash}");/*Return this.func() is work.*/
             if (Is_Dash)/*Add dash power*/
             {
                 if (MoveDate.x != 0) MoveDate.x *= 2 * 2;/*Player is on Move*/
-                else MoveDate.x += Iamge.flipX ? -2 : 2;/*Player just Input.(Dash)*/
+                else MoveDate.x += playerStatus.FaceRight ? -2 : 2;/*Player just Input.(Dash)*/
                 Player_Movement = MoveDate;
             }
             else
             {
                 if (MoveDate.x != 0)
                     playerStatus.Object_InertiaX = Mathf.Clamp(playerStatus.Object_InertiaX += MoveDate.x, -playerStatus.MaxMoveSpeedX, playerStatus.MaxMoveSpeedX);
-                else Player_Move_SlowX(Iamge.flipX);
+                else Player_Move_SlowX();
                 if (MoveDate.y != 0)
                     playerStatus.Object_InertiaY = Mathf.Clamp(playerStatus.Object_InertiaY += MoveDate.y, -playerStatus.MaxMoveSpeedY, playerStatus.MaxMoveSpeedY);
                 else Player_Move_SlowY(Hold_Gravity);
@@ -43,9 +43,9 @@ namespace Bubble
             Player_Movement = NullVec3;/*close old.*/
             return false;/*close old.*/
         }
-        public void Player_Move(bool Hold_Gravity, SpriteRenderer Iamge)/*Player not use Any Button.*/
+        public void Player_Move(bool Hold_Gravity)/*Player not use Any Button.*/
         {
-            Player_Move_SlowX(Iamge.flipX);
+            Player_Move_SlowX();
             Player_Move_SlowY(Hold_Gravity);
             Player_Movement = new Vector2(playerStatus.Object_InertiaX, playerStatus.Object_InertiaY) * Time.deltaTime;
 
@@ -57,11 +57,11 @@ namespace Bubble
                 _ = playerStatus.Object_InertiaY <= -playerStatus.MaxMoveSpeedY ? playerStatus.Object_InertiaY = -playerStatus.MaxMoveSpeedY : playerStatus.Object_InertiaY -= playerStatus.MaxMoveSpeedY;
             else playerStatus.Object_InertiaY = 0;
         }
-        private void Player_Move_SlowX(bool flipX)
+        private void Player_Move_SlowX()
         {
             if (playerStatus.Object_InertiaX != 0)
             {
-                if (flipX) // -x
+                if (playerStatus.FaceRight) // -x
                 {
                     playerStatus.Object_InertiaX += playerStatus.Object_Slow_ForceX;
                     if (playerStatus.Object_InertiaX >= 0)
