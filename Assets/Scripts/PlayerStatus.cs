@@ -1,7 +1,8 @@
 using System;
-using Player.Interfaces;
+using System.Collections.Generic;
+using Bubble;
 
-namespace Player.Components
+namespace Bubble
 {
     public class PlayerStatus : IPlayerStatus
     {

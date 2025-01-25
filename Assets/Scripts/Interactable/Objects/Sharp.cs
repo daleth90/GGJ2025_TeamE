@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Interactable
+namespace Bubble
 {
     public class Sharp : MonoBehaviour
     {

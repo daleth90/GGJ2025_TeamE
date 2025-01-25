@@ -1,7 +1,6 @@
-using Interactable.Interfaces;
 using UnityEngine;
 
-namespace Interactable.Objects
+namespace Bubble
 {
     public class Door : MonoBehaviour, IKeyInteractable
     {

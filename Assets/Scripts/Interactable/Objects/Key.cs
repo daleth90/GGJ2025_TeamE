@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Interactable.Objects
+namespace Bubble
 {
     public class Key : MonoBehaviour
     {

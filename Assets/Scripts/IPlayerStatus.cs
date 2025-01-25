@@ -1,6 +1,6 @@
 using System;
 
-namespace Player.Interfaces
+namespace Bubble
 {
     public interface IPlayerStatus
     {

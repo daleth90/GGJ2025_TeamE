@@ -1,4 +1,4 @@
-namespace Interactable.Interfaces
+namespace Bubble
 {
     public interface IKeyInteractable
     {
