@@ -10,6 +10,7 @@ namespace Bubble
         public static GameSystemModel instance { get; private set; }
 
         public UnityAction GameStartAction;
+        public UnityAction GameEndAction;
         public UnityAction GameSuccessfulAction;
         public UnityAction GameFailAction;
 
@@ -21,6 +22,11 @@ namespace Bubble
         public void GameStartLog()
         {
             Debug.Log("Game Start");
+        }
+
+        public void GameEndLog()
+        {
+            Debug.Log("Game End");
         }
 
         public void GameSuccessfulLog()

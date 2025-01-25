@@ -13,17 +13,28 @@ namespace Bubble
 
         private void AddGameStartAction()
         {
-            gameSystemModel.GameStartAction += gameSystemView.GameStartView;
             gameSystemModel.GameStartAction += levelManager.PlayerReStorePosition;
+            gameSystemModel.GameStartAction += playerStatus.Init;
+            gameSystemModel.GameStartAction += () => playerStatus.gameObject.SetActive(true);
+            gameSystemModel.GameStartAction += () => playerStatus.Set_Player_Input_Ctrl_Enableed(true);
+            gameSystemModel.GameStartAction += gameSystemView.GameStartView;
+        }
+
+        private void AddGameEndAction()
+        {
+            gameSystemModel.GameEndAction += () => playerStatus.gameObject.SetActive(false);
+            gameSystemModel.GameEndAction += () => playerStatus.Set_Player_Input_Ctrl_Enableed(false);
         }
 
         private void AddGameSuccessfulAction()
         {
+            gameSystemModel.GameSuccessfulAction += gameSystemModel.GameEndAction;
             gameSystemModel.GameSuccessfulAction += gameSystemView.GameSuccessfulView;
         }
 
         private void AddGameFailAction()
         {
+            gameSystemModel.GameFailAction += gameSystemModel.GameEndAction;
             gameSystemModel.GameFailAction += gameSystemView.GameFailView;
         }
 
@@ -38,10 +49,17 @@ namespace Bubble
             gameSystemView.endUI.quitButton.onClick.AddListener(() => SceneManager.LoadScene("Menu"));
         }
 
+        private void AddPlayerStatusDeathAction()
+        {
+            playerStatus.DeathAction += gameSystemModel.GameFailAction;
+        }
+
         private void AddGameSystemModelLog()
         {
             gameSystemModel.GameStartAction += gameSystemModel.GameStartLog;
-            gameSystemModel.GameFailAction += gameSystemModel.GameSuccessfulLog;
+            gameSystemModel.GameEndAction += gameSystemModel.GameEndLog;
+            gameSystemModel.GameSuccessfulAction += gameSystemModel.GameSuccessfulLog;
+            gameSystemModel.GameFailAction += gameSystemModel.GameFailLog;
         }
 
         private void Awake()
@@ -51,9 +69,11 @@ namespace Bubble
             levelManager.Init(playerStatus);
 
             AddGameStartAction();
+            AddGameEndAction();
             AddGameFailAction();
             AddGameSuccessfulAction();
             AddEndUIButtonEvent();
+            AddPlayerStatusDeathAction();
             AddGameSystemModelLog();
 
             levelManager.ReStartLevel();

@@ -137,7 +137,7 @@ MonoBehaviour:
   movement_Ctrl: {fileID: 7212429420882262289}
   playerStatus: {fileID: 4016139999966219866}
   Can_Move: 1
-  Hold_Gravity: 1
+  Hold_Gravity: 0
 --- !u!114 &7212429420882262289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2052ccc49140ce4993c612c3930a6d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player_Input_Ctrl: {fileID: 0}
+  player_Input_Ctrl: {fileID: 2228946617322580570}
   maxMoveSpeedY: 10
   maxMoveSpeedX: 10
   maxSpeed: 100
