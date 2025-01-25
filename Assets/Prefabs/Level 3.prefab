@@ -78,34 +78,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2334808125489250361}
     m_Modifications:
-    - target: {fileID: -996632320427231734, guid: dc2b8f3131dddaf48a980675faf96243, type: 3}
-      propertyPath: _bulletData.damage
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: -996632320427231734, guid: dc2b8f3131dddaf48a980675faf96243, type: 3}
-      propertyPath: _bulletData.lifeTime
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: -996632320427231734, guid: dc2b8f3131dddaf48a980675faf96243, type: 3}
-      propertyPath: _bulletData.moveSpeed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4879528367236677430, guid: dc2b8f3131dddaf48a980675faf96243, type: 3}
-      propertyPath: m_Size.x
-      value: 3.2935238
-      objectReference: {fileID: 0}
-    - target: {fileID: 4879528367236677430, guid: dc2b8f3131dddaf48a980675faf96243, type: 3}
-      propertyPath: m_Size.y
-      value: 8.659721
-      objectReference: {fileID: 0}
-    - target: {fileID: 4879528367236677430, guid: dc2b8f3131dddaf48a980675faf96243, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.013985634
-      objectReference: {fileID: 0}
-    - target: {fileID: 4879528367236677430, guid: dc2b8f3131dddaf48a980675faf96243, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.9959252
-      objectReference: {fileID: 0}
     - target: {fileID: 5043959193187513285, guid: dc2b8f3131dddaf48a980675faf96243, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.2561898
@@ -176,22 +148,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2334808125489250361}
     m_Modifications:
-    - target: {fileID: -996632320427231734, guid: dc2b8f3131dddaf48a980675faf96243, type: 3}
-      propertyPath: _shotCoolDownTime
-      value: 1e+13
-      objectReference: {fileID: 0}
-    - target: {fileID: -996632320427231734, guid: dc2b8f3131dddaf48a980675faf96243, type: 3}
-      propertyPath: _bulletData.damage
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: -996632320427231734, guid: dc2b8f3131dddaf48a980675faf96243, type: 3}
-      propertyPath: _bulletData.lifeTime
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: -996632320427231734, guid: dc2b8f3131dddaf48a980675faf96243, type: 3}
-      propertyPath: _bulletData.moveSpeed
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 5043959193187513285, guid: dc2b8f3131dddaf48a980675faf96243, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.2561898
@@ -542,18 +498,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2334808125489250361}
     m_Modifications:
-    - target: {fileID: -996632320427231734, guid: dc2b8f3131dddaf48a980675faf96243, type: 3}
-      propertyPath: _fixedPoint.y
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: -996632320427231734, guid: dc2b8f3131dddaf48a980675faf96243, type: 3}
-      propertyPath: _useFixedPoint
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -996632320427231734, guid: dc2b8f3131dddaf48a980675faf96243, type: 3}
-      propertyPath: _bulletStartOffset.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5043959193187513285, guid: dc2b8f3131dddaf48a980675faf96243, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.2561898
@@ -1796,14 +1740,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2334808125489250361}
     m_Modifications:
-    - target: {fileID: -996632320427231734, guid: dc2b8f3131dddaf48a980675faf96243, type: 3}
-      propertyPath: _fixedPoint.x
-      value: -10.2
-      objectReference: {fileID: 0}
-    - target: {fileID: -996632320427231734, guid: dc2b8f3131dddaf48a980675faf96243, type: 3}
-      propertyPath: _bulletStartOffset.x
-      value: -1.2
-      objectReference: {fileID: 0}
     - target: {fileID: 5043959193187513285, guid: dc2b8f3131dddaf48a980675faf96243, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.2561898
