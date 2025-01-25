@@ -1,70 +1,72 @@
-using Bubble;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+namespace Bubble
 {
-    [SerializeField] private float _moveSpeed;
-    [SerializeField] private float _lifeTime;
-    [SerializeField] private int _damage;
-
-    // Target
-    private Transform _player;
-    private Vector3 _targetPosition;
-
-    private float _startTime = float.MaxValue;
-
-    public void SetTarget(Vector2 target)
+    public class Bullet : MonoBehaviour
     {
-        _startTime = Time.time;
-        _targetPosition = target;
-    }
+        // Target
+        private Transform _player;
+        private Vector3 _targetPosition;
 
-    public void SetTarget(Transform player)
-    {
-        _startTime = Time.time;
-        _player = player;
-    }
+        private BulletData _bulletData;
 
-    private void Update()
-    {
-        Move();
+        private float _startTime = float.MaxValue;
 
-        AttackIfArrivedOrTimeout();
-    }
-
-    private void Move()
-    {
-        // Get position by player or fixed point.
-        Vector3 target = (_player != null) ? _player.position : _targetPosition;
-
-        // Calculate next position.
-        target = Vector3.MoveTowards(transform.position, target, _moveSpeed * Time.deltaTime);
-
-        // Move
-        transform.position = target;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collider)
-    {
-        // If find player then attack.
-        if (collider.CompareTag("Player"))
+        public void SetTarget(Vector2 target, BulletData data)
         {
-            collider.GetComponent<PlayerStatus>().oxygen -= _damage;
+            _startTime = Time.time;
+            _targetPosition = target;
+            _bulletData = data;
+        }
+
+        public void SetTarget(Transform player, BulletData data)
+        {
+            _startTime = Time.time;
+            _player = player;
+            _bulletData = data;
+        }
+
+        private void Update()
+        {
+            Move();
+
+            ExplodeIfArrivedOrTimeout();
+        }
+
+        private void Move()
+        {
+            // Get position by player or fixed point.
+            Vector3 target = (_player != null) ? _player.position : _targetPosition;
+
+            // Calculate next position.
+            target = Vector3.MoveTowards(transform.position, target, _bulletData.moveSpeed * Time.deltaTime);
+
+            // Move
+            transform.position = target;
+        }
+
+        private void OnTriggerEnter2D(Collider2D collider)
+        {
+            // If find player then attack.
+            if (collider.CompareTag("Player"))
+            {
+                collider.GetComponent<PlayerStatus>().oxygen -= _bulletData.damage;
+                Destroy(gameObject);
+            }
+        }
+
+        // TODO: If want to add an explosion effect...
+        private void Explode()
+        {
             Destroy(gameObject);
         }
-    }
 
-    // TODO: If want to add an explosion effect...
-    private void Attack()
-    {
-        Destroy(gameObject);
-    }
-
-    private void AttackIfArrivedOrTimeout()
-    {
-        // Attack/Destroy if arrived or timeout
-        if ((_player == null && transform.position == _targetPosition)
-            || _startTime + _lifeTime < Time.time)
-            Attack();
+        private void ExplodeIfArrivedOrTimeout()
+        {
+            // Attack/Destroy if arrived or timeout
+            if ((_player == null && transform.position == _targetPosition)
+                || _startTime + _bulletData.lifeTime < Time.time)
+                Explode();
+        }
     }
 }

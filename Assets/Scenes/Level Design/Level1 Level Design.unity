@@ -280,6 +280,98 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4613604394346345074, guid: b76ad5d849951314aa27f287e15e28c1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653470455496317439, guid: b76ad5d849951314aa27f287e15e28c1, type: 3}
+      propertyPath: m_Size.x
+      value: 3.2935238
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653470455496317439, guid: b76ad5d849951314aa27f287e15e28c1, type: 3}
+      propertyPath: m_Size.y
+      value: 8.659721
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653470455496317439, guid: b76ad5d849951314aa27f287e15e28c1, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.013985634
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653470455496317439, guid: b76ad5d849951314aa27f287e15e28c1, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.9959252
+      objectReference: {fileID: 0}
+    - target: {fileID: 4899120297929842384, guid: b76ad5d849951314aa27f287e15e28c1, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7505762357587720023, guid: b76ad5d849951314aa27f287e15e28c1, type: 3}
+      propertyPath: _footOffset.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7505762357587720023, guid: b76ad5d849951314aa27f287e15e28c1, type: 3}
+      propertyPath: _bulletStartOffset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7505762357587720023, guid: b76ad5d849951314aa27f287e15e28c1, type: 3}
+      propertyPath: _bulletStartOffset.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7505762357587720023, guid: b76ad5d849951314aa27f287e15e28c1, type: 3}
+      propertyPath: _bulletTargetPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7505762357587720023, guid: b76ad5d849951314aa27f287e15e28c1, type: 3}
+      propertyPath: _bulletTargetPosition.y
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8144939851967729859, guid: b76ad5d849951314aa27f287e15e28c1, type: 3}
+      propertyPath: _bulletData.damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8144939851967729859, guid: b76ad5d849951314aa27f287e15e28c1, type: 3}
+      propertyPath: _useSearchCollider
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8144939851967729859, guid: b76ad5d849951314aa27f287e15e28c1, type: 3}
+      propertyPath: _bulletData.lifeTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8144939851967729859, guid: b76ad5d849951314aa27f287e15e28c1, type: 3}
+      propertyPath: _bulletData.moveSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8634014865338595261, guid: b76ad5d849951314aa27f287e15e28c1, type: 3}
+      propertyPath: _moveSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8634014865338595261, guid: b76ad5d849951314aa27f287e15e28c1, type: 3}
+      propertyPath: _fixedPoint.x
+      value: 8.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 8634014865338595261, guid: b76ad5d849951314aa27f287e15e28c1, type: 3}
+      propertyPath: _footOffset.x
+      value: 1.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 8634014865338595261, guid: b76ad5d849951314aa27f287e15e28c1, type: 3}
+      propertyPath: _footOffset.y
+      value: -1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8634014865338595261, guid: b76ad5d849951314aa27f287e15e28c1, type: 3}
+      propertyPath: _bulletData.damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8634014865338595261, guid: b76ad5d849951314aa27f287e15e28c1, type: 3}
+      propertyPath: _bulletData.lifeTime
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8634014865338595261, guid: b76ad5d849951314aa27f287e15e28c1, type: 3}
+      propertyPath: _bulletData.moveSpeed
+      value: 4.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 8634014865338595261, guid: b76ad5d849951314aa27f287e15e28c1, type: 3}
+      propertyPath: _bulletTargetPosition.x
+      value: 8.32
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
