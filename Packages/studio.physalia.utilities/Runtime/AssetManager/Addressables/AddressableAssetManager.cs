@@ -929,6 +929,7 @@ namespace Physalia.AssetManager
                 Directory.Delete(CatalogCacheFolderPath, true);
             }
 
+#if UNITY_2022_1_OR_NEWER && !UNITY_WEBGL
             // Clear bundle cache, might be failed if the cache is being used.
             bool success = Caching.ClearCache();
             if (success)
@@ -939,6 +940,7 @@ namespace Physalia.AssetManager
             {
                 Logger.Error(Label, "Failed to clear cache, the cache might being used.");
             }
+#endif
         }
     }
 }
