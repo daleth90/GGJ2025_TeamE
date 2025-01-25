@@ -139,6 +139,7 @@ Transform:
   m_Children:
   - {fileID: 1084919677466467115}
   - {fileID: 1857213153833386397}
+  - {fileID: 1631166136280467918}
   m_Father: {fileID: 3877611985496727370}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2530323627438948555
@@ -399,6 +400,7 @@ MonoBehaviour:
   faceRight: 1
   maxMoveSpeedY: 10
   maxMoveSpeedX: 10
+  maxOxygen: 100
   object_Inertia: {x: 0, y: 0}
   object_Slow_ForceX: 10
   object_Slow_ForceY: 5
@@ -509,3 +511,49 @@ MonoBehaviour:
   target_layerMask:
     serializedVersion: 2
     m_Bits: 128
+--- !u!1001 &1083133828262293325
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5144070653600691470}
+    m_Modifications:
+    - target: {fileID: 1849572686404822659, guid: 866c2247f6420694a9b716102a4fea4f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849572686404822659, guid: 866c2247f6420694a9b716102a4fea4f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849572686404822659, guid: 866c2247f6420694a9b716102a4fea4f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849572686404822659, guid: 866c2247f6420694a9b716102a4fea4f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849572686404822659, guid: 866c2247f6420694a9b716102a4fea4f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450739269314366806, guid: 866c2247f6420694a9b716102a4fea4f, type: 3}
+      propertyPath: _playerStatus
+      value: 
+      objectReference: {fileID: 4016139999966219866}
+    - target: {fileID: 7255827458928373439, guid: 866c2247f6420694a9b716102a4fea4f, type: 3}
+      propertyPath: m_Name
+      value: HealthBar
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 866c2247f6420694a9b716102a4fea4f, type: 3}
+--- !u!224 &1631166136280467918 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1849572686404822659, guid: 866c2247f6420694a9b716102a4fea4f, type: 3}
+  m_PrefabInstance: {fileID: 1083133828262293325}
+  m_PrefabAsset: {fileID: 0}
