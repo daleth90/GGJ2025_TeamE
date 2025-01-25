@@ -1,4 +1,5 @@
 using System;
+using Cysharp.Threading.Tasks;
 using Physalia;
 using UnityEngine;
 
@@ -27,14 +28,26 @@ namespace Bubble
             endUI.ShowEndUI(false);
         }
 
-        public void GameSuccessfulView()
+        public async UniTaskVoid GameSuccessfulViewDelay(int milliseconds)
+        {
+            await UniTask.Delay(milliseconds);
+            GameSuccessfulView();
+        }
+
+        public async UniTaskVoid GameFailViewDelay(int milliseconds)
+        {
+            await UniTask.Delay(milliseconds);
+            GameFailView();
+        }
+
+        private void GameSuccessfulView()
         {
             audioManager.PlayMusic("BGM_Clear", 0.2f);
             endUI.ShowEndUI(true);
             endUI.nextButton.gameObject.SetActive(!levelManager.isLastLevel);
         }
 
-        public void GameFailView()
+        private void GameFailView()
         {
             audioManager.PlayMusic("BGM_GameOver", 0.2f);
             endUI.ShowEndUI(true);
