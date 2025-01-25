@@ -9,33 +9,37 @@ namespace Bubble
     {
         public static GameSystemModel instance { get; private set; }
 
-        public UnityAction GameStartAction;
-        public UnityAction GameEndAction;
-        public UnityAction GameSuccessfulAction;
-        public UnityAction GameFailAction;
+        public event UnityAction GameStartAction;
+        public event UnityAction GameEndAction;
+        public event UnityAction GameSuccessfulAction;
+        public event UnityAction GameFailAction;
 
         public void Init()
         {
             instance = this;
         }
 
-        public void GameStartLog()
+        public void GameStart()
         {
+            GameStartAction?.Invoke();
             Debug.Log("Game Start");
         }
 
-        public void GameEndLog()
+        public void GameEnd()
         {
+            GameEndAction?.Invoke();
             Debug.Log("Game End");
         }
 
-        public void GameSuccessfulLog()
+        public void GameSuccessful()
         {
+            GameSuccessfulAction?.Invoke();
             Debug.Log("Game Successful");
         }
 
-        public void GameFailLog()
+        public void GameFail()
         {
+            GameFailAction?.Invoke();
             Debug.Log("Game Fail");
         }
     }

@@ -32,39 +32,31 @@ namespace Bubble
         private void AddGameSuccessfulAction()
         {
             gameSystemModel.GameSuccessfulAction += () => _audioManager.PlaySound("SFX_Goal");
-            gameSystemModel.GameSuccessfulAction += gameSystemModel.GameEndAction;
+            gameSystemModel.GameSuccessfulAction += gameSystemModel.GameEnd;
             gameSystemModel.GameSuccessfulAction += () => gameSystemView.GameSuccessfulViewDelay(500).Forget();
         }
 
         private void AddGameFailAction()
         {
             gameSystemModel.GameFailAction += () => _audioManager.PlaySound("SFX_PlayerDeath");
-            gameSystemModel.GameFailAction += gameSystemModel.GameEndAction;
+            gameSystemModel.GameFailAction += gameSystemModel.GameEnd;
             gameSystemModel.GameFailAction += () => gameSystemView.GameFailViewDelay(500).Forget();
         }
 
         private void AddEndUIButtonEvent()
         {
             gameSystemView.endUI.restartButton.onClick.AddListener(levelManager.ReStartLevel);
-            gameSystemView.endUI.restartButton.onClick.AddListener(gameSystemModel.GameStartAction);
+            gameSystemView.endUI.restartButton.onClick.AddListener(gameSystemModel.GameStart);
             
             gameSystemView.endUI.nextButton.onClick.AddListener(levelManager.NextLevel);
-            gameSystemView.endUI.nextButton.onClick.AddListener(gameSystemModel.GameStartAction);
+            gameSystemView.endUI.nextButton.onClick.AddListener(gameSystemModel.GameStart);
 
             gameSystemView.endUI.quitButton.onClick.AddListener(() => SceneManager.LoadScene("Menu"));
         }
 
         private void AddPlayerStatusDeathAction()
         {
-            playerStatus.DeathAction += gameSystemModel.GameFailAction;
-        }
-
-        private void AddGameSystemModelLog()
-        {
-            gameSystemModel.GameStartAction += gameSystemModel.GameStartLog;
-            gameSystemModel.GameEndAction += gameSystemModel.GameEndLog;
-            gameSystemModel.GameSuccessfulAction += gameSystemModel.GameSuccessfulLog;
-            gameSystemModel.GameFailAction += gameSystemModel.GameFailLog;
+            playerStatus.DeathAction += gameSystemModel.GameFail;
         }
 
         private void Awake()
@@ -82,24 +74,23 @@ namespace Bubble
             AddGameSuccessfulAction();
             AddEndUIButtonEvent();
             AddPlayerStatusDeathAction();
-            AddGameSystemModelLog();
         }
 
         private void Start()
         {
-            gameSystemModel.GameStartAction();
+            gameSystemModel.GameStart();
         }
 
         [ContextMenu(nameof(GameSystemModel.GameSuccessfulAction))]
         private void TestGameSuccessfulAction()
         {
-            gameSystemModel.GameSuccessfulAction?.Invoke();
+            gameSystemModel.GameSuccessful();
         }
 
         [ContextMenu(nameof(GameSystemModel.GameFailAction))]
         private void TestGameFailAction()
         {
-            gameSystemModel.GameFailAction?.Invoke();
+            gameSystemModel.GameFail();
         }
     }
 }

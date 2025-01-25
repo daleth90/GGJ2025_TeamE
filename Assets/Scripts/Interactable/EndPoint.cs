@@ -6,7 +6,7 @@ namespace Bubble
     {
         public void Interact(PlayerStatus playerStatus = null)
         {
-            GameSystemModel.instance.GameSuccessfulAction?.Invoke();
+            GameSystemModel.instance.GameSuccessful();
         }
     }
 }
