@@ -568,6 +568,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2334808125489250361}
     m_Modifications:
+    - target: {fileID: -996632320427231734, guid: dc2b8f3131dddaf48a980675faf96243, type: 3}
+      propertyPath: _fixedPoint.x
+      value: 7.54
+      objectReference: {fileID: 0}
+    - target: {fileID: -996632320427231734, guid: dc2b8f3131dddaf48a980675faf96243, type: 3}
+      propertyPath: _useFixedPoint
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -996632320427231734, guid: dc2b8f3131dddaf48a980675faf96243, type: 3}
+      propertyPath: _bulletData.damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -996632320427231734, guid: dc2b8f3131dddaf48a980675faf96243, type: 3}
+      propertyPath: _bulletData.lifeTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -996632320427231734, guid: dc2b8f3131dddaf48a980675faf96243, type: 3}
+      propertyPath: _bulletStartOffset.x
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: -996632320427231734, guid: dc2b8f3131dddaf48a980675faf96243, type: 3}
+      propertyPath: _bulletData.moveSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5043959193187513285, guid: dc2b8f3131dddaf48a980675faf96243, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.3675
@@ -638,6 +662,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2334808125489250361}
     m_Modifications:
+    - target: {fileID: -996632320427231734, guid: dc2b8f3131dddaf48a980675faf96243, type: 3}
+      propertyPath: _bullet
+      value: 
+      objectReference: {fileID: 2643485316987983107, guid: 4bef53cdd542f1149bdfcee3535c704c, type: 3}
+    - target: {fileID: -996632320427231734, guid: dc2b8f3131dddaf48a980675faf96243, type: 3}
+      propertyPath: _moveSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -996632320427231734, guid: dc2b8f3131dddaf48a980675faf96243, type: 3}
+      propertyPath: _footOffset.x
+      value: 1.34
+      objectReference: {fileID: 0}
+    - target: {fileID: -996632320427231734, guid: dc2b8f3131dddaf48a980675faf96243, type: 3}
+      propertyPath: _footOffset.y
+      value: -1.09
+      objectReference: {fileID: 0}
+    - target: {fileID: -996632320427231734, guid: dc2b8f3131dddaf48a980675faf96243, type: 3}
+      propertyPath: _bulletData.damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -996632320427231734, guid: dc2b8f3131dddaf48a980675faf96243, type: 3}
+      propertyPath: _bulletData.lifeTime
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 5043959193187513285, guid: dc2b8f3131dddaf48a980675faf96243, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.3675
@@ -1678,6 +1726,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2334808125489250361}
     m_Modifications:
+    - target: {fileID: -996632320427231734, guid: dc2b8f3131dddaf48a980675faf96243, type: 3}
+      propertyPath: _bullet
+      value: 
+      objectReference: {fileID: 2643485316987983107, guid: 4bef53cdd542f1149bdfcee3535c704c, type: 3}
+    - target: {fileID: -996632320427231734, guid: dc2b8f3131dddaf48a980675faf96243, type: 3}
+      propertyPath: _bulletData.damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -996632320427231734, guid: dc2b8f3131dddaf48a980675faf96243, type: 3}
+      propertyPath: _bulletData.lifeTime
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 5043959193187513285, guid: dc2b8f3131dddaf48a980675faf96243, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.3675

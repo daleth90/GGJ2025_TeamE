@@ -57,7 +57,7 @@ namespace Bubble
             Vector2 checkPosition = GetFootPosition();
             checkPosition.y = transform.position.y;
 
-            LayerMask mask = LayerMask.GetMask("Interactable");
+            LayerMask mask = LayerMask.GetMask("Interactable", "Ground");
             RaycastHit2D[] hits = Physics2D.LinecastAll(transform.position, checkPosition, mask);
             foreach (RaycastHit2D hit in hits)
             {
