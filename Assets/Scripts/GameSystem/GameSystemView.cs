@@ -25,7 +25,7 @@ namespace Bubble
         public void GameStartView()
         {
             audioManager.PlayMusic($"BGM_Level{levelManager.LevelNumber}", 0.2f);
-            endUI.ShowEndUI(false);
+            endUI.Hide();
         }
 
         public async UniTaskVoid GameSuccessfulViewDelay(int milliseconds)
@@ -43,14 +43,14 @@ namespace Bubble
         private void GameSuccessfulView()
         {
             audioManager.PlayMusic("BGM_Clear", 0.2f);
-            endUI.ShowEndUI(true);
+            endUI.Show(true);
             endUI.nextButton.gameObject.SetActive(!levelManager.isLastLevel);
         }
 
         private void GameFailView()
         {
             audioManager.PlayMusic("BGM_GameOver", 0.2f);
-            endUI.ShowEndUI(true);
+            endUI.Show(false);
             endUI.nextButton.gameObject.SetActive(false);
         }
     }

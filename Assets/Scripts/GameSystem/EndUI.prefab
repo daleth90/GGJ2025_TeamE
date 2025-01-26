@@ -145,7 +145,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c44435279e44864c9398881106ab23c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b07b35a9935efa348b1779249bba511f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -209,6 +209,9 @@ MonoBehaviour:
   <nextButton>k__BackingField: {fileID: 6932272233892809940}
   <quitButton>k__BackingField: {fileID: 2534958571865126842}
   ui: {fileID: 8027433231079331105}
+  _resultImage: {fileID: 2248897260533299788}
+  _successSprite: {fileID: 21300000, guid: b07b35a9935efa348b1779249bba511f, type: 3}
+  _failSprite: {fileID: 21300000, guid: 3c44435279e44864c9398881106ab23c, type: 3}
 --- !u!1001 &4397129933965692704
 PrefabInstance:
   m_ObjectHideFlags: 0
