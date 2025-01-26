@@ -20,10 +20,13 @@ namespace Bubble
         private AudioSource _soundLoopMove;
 
         private UpFX upFX = new();
+        private DashFX dashFX = new();
 
         private void Awake()
         {
             _audioManager = ServiceLocator.Resolve<IAudioManager>();
+            upFX.Init(transform);
+            dashFX.Init(transform);
         }
 
         private void OnDisable()
@@ -65,6 +68,7 @@ namespace Bubble
 
             if (_playerStatus.PlayerDashFrame)
             {
+                dashFX.Play();
                 _audioManager.PlaySound("SFX_PlayerDash");
             }
 
@@ -93,7 +97,7 @@ namespace Bubble
 
             if (_playerStatus.isUp)
             {
-                upFX.Play(transform);
+                upFX.Play();
             }
             else
             {
@@ -101,6 +105,12 @@ namespace Bubble
             }
 
             RefreshBubbleScale();
+        }
+
+        private void OnDestroy()
+        {
+            upFX.OnDestory();
+            dashFX.OnDestory();
         }
 
         private void RefreshBubbleScale()

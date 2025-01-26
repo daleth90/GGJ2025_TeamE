@@ -17,6 +17,11 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: ec87ca6386c96344d9de1b597e2d3598
   m_SerializeEntries:
+  - m_GUID: 6c1c233ac48ae0648b5aa038e8f32c86
+    m_Address: Dash FX
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 83036083a4ebcd34f98131bd3cf6f4d2
     m_Address: CFXR3 Hit Misc A
     m_ReadOnly: 0
