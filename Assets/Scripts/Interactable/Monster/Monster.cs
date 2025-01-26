@@ -21,8 +21,13 @@ namespace Bubble
 
         [Header("Reload")]
         [SerializeField] private float _shotCoolDownTime;
-
         private float _lastShotTime;
+
+        private void Start()
+        {
+            if (_moveSpeed > 0)
+                GetComponent<AudioSource>().Play();
+        }
 
         private void Update()
         {
