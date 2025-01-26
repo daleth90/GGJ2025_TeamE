@@ -1296,6 +1296,10 @@ PrefabInstance:
       propertyPath: <startPosition>k__BackingField
       value: 
       objectReference: {fileID: 4081311354713303647}
+    - target: {fileID: 2963757175126408214, guid: bb7754849f28c0341a2550335e57cf2c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4651631192449749797, guid: bb7754849f28c0341a2550335e57cf2c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
