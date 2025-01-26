@@ -540,10 +540,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1849572686404822659, guid: 866c2247f6420694a9b716102a4fea4f, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3450739269314366806, guid: 866c2247f6420694a9b716102a4fea4f, type: 3}
       propertyPath: _playerStatus
       value: 
       objectReference: {fileID: 4016139999966219866}
+    - target: {fileID: 4485655094363344511, guid: 866c2247f6420694a9b716102a4fea4f, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7255827458928373439, guid: 866c2247f6420694a9b716102a4fea4f, type: 3}
       propertyPath: m_Name
       value: HealthBar
