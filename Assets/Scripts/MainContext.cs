@@ -20,7 +20,9 @@ namespace Bubble
             var assetManager = new AddressableAssetManager();
             ServiceLocator.Register<IAssetManager>(assetManager);
             ServiceLocator.Register<IAudioManager>(_audioManager);
-            ServiceLocator.Register<IVfxManager>(new VfxManager(assetManager));
+
+            var vfxManager = new VfxManager(assetManager) { DefaultPoolSize = 4 };
+            ServiceLocator.Register<IVfxManager>(vfxManager);
 
             ScreenFader screenFader = Instantiate(_screenFaderPrefab);
             screenFader.name = nameof(ScreenFader);
