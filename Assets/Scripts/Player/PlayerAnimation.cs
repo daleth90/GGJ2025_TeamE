@@ -37,8 +37,20 @@ namespace Bubble
 
         private void Update()
         {
-            if (_playerStatus.IsDeath) _characterAnimator.SetBool("Death", true);
-            else _characterAnimator.SetBool("Death", false);
+            if (_playerStatus.IsDeath)
+            {
+                if (!_characterAnimator.GetCurrentAnimatorStateInfo(0).IsName("Death"))
+                {
+                    _characterAnimator.Play("Death", 0);
+                }
+            }
+            else
+            {
+                if (_characterAnimator.GetCurrentAnimatorStateInfo(0).IsName("Death"))
+                {
+                    _characterAnimator.Play("Idle", 0);
+                }
+            }
 
             transform.localScale = _playerStatus.FaceRight ? new Vector3(-1, 1, 1) : new Vector3(1, 1, 1);
 
@@ -97,7 +109,7 @@ namespace Bubble
             float scale = Mathf.Lerp(_bubbleMinScale, 1f, percentage);
             _bubbleAnimator.transform.localScale = new Vector3(scale, scale, 1f);
         }
-        private void AniRun(string Name ,bool B)
+        private void AniRun(string Name, bool B)
         {
             _characterAnimator.SetBool(Name, B);
             _bubbleAnimator.SetBool(Name, B);
