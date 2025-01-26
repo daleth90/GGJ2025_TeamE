@@ -35,7 +35,7 @@ namespace Bubble
         [SerializeField] private Vector2 _velocity;
         [SerializeField] private float _dashTime;
 
-        private bool isDeath;
+        [SerializeField]private bool isDeath;
 
         public float oxygen
         {
@@ -91,8 +91,9 @@ namespace Bubble
             if (_oxygen > 0) return;
 
             isDeath = true;
+            //player_Input_Ctrl
 
-            Set_Player_Input_Ctrl_Enableed(false);
+            //Set_Player_Input_Ctrl_Enableed(false);
             DeathAction?.Invoke();
         }
 

@@ -20,13 +20,15 @@ namespace Bubble
             gameSystemModel.GameStartAction += playerStatus.Init;
             gameSystemModel.GameStartAction += () => playerStatus.gameObject.SetActive(true);
             gameSystemModel.GameStartAction += () => playerStatus.Set_Player_Input_Ctrl_Enableed(true);
+            gameSystemModel.GameStartAction += () => playerStatus.transform.GetChild(1).gameObject.SetActive(true);
             gameSystemModel.GameStartAction += gameSystemView.GameStartView;
         }
 
         private void AddGameEndAction()
         {
-            gameSystemModel.GameEndAction += () => playerStatus.gameObject.SetActive(false);
             gameSystemModel.GameEndAction += () => playerStatus.Set_Player_Input_Ctrl_Enableed(false);
+
+            gameSystemModel.GameEndAction += () => playerStatus.transform.GetChild(1).gameObject.SetActive(false);
         }
 
         private void AddGameSuccessfulAction()

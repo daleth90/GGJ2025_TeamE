@@ -37,6 +37,9 @@ namespace Bubble
 
         private void Update()
         {
+            if (_playerStatus.IsDeath) AniRun("Death", true);
+            else AniRun("Death", false);
+
             transform.localScale = _playerStatus.FaceRight ? new Vector3(-1, 1, 1) : new Vector3(1, 1, 1);
 
             if (_playerStatus.VelocityX != 0f)
@@ -50,10 +53,10 @@ namespace Bubble
 
             if (_playerStatus.PlayerDashFrame)
             {
-                AniRun("Dash", true);
                 _audioManager.PlaySound("SFX_PlayerDash");
             }
-            if (_playerStatus.IsDashing) AniRun("Dash", false);
+            if (_playerStatus.IsDashing) AniRun("Dash", true);
+            else AniRun("Dash", false);
 
             if (_playerStatus.PlayerGroundedFrame)
             {

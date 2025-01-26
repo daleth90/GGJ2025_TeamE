@@ -14,7 +14,9 @@ namespace Bubble
 
         public void Interact(PlayerStatus playerStatus = null)
         {
-            GameSystemModel.instance.GameFail();
+            //GameSystemModel.instance.GameFail();
+            playerStatus.oxygen = 0;
+
             _ivfxManager.PlayOneShot("CFXR3 Hit Misc A", playerStatus.transform.position);
         }
     }
