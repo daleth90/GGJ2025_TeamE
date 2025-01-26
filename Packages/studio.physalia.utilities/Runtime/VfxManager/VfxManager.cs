@@ -144,9 +144,17 @@ namespace Physalia
             bool success = _poolTable.TryGetValue(key, out GameObjectPool pool);
             if (success)
             {
-                GameObject instance = pool.Get();
-                _instanceToPoolTable.Add(instance, pool);
-                return instance;
+                // Check if the pool root is destroyed, re-create it.
+                if (pool.IsRootDestroyed)
+                {
+                    DestroyPool(key);
+                }
+                else
+                {
+                    GameObject instance = pool.Get();
+                    _instanceToPoolTable.Add(instance, pool);
+                    return instance;
+                }
             }
 
             Logger.Warn(Label, $"Pool not found: '{key}'. Create new pool immediately!" +

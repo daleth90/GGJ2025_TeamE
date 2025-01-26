@@ -9,6 +9,8 @@ namespace Physalia
         private readonly Transform _root;
         private readonly string _rootName;
 
+        public bool IsRootDestroyed => _root == null;
+
         public GameObjectPool(GameObject original, int startSize) : this(original, startSize, null)
         {
 
