@@ -35,7 +35,7 @@ namespace Bubble
         [SerializeField] private Vector2 _velocity;
         [SerializeField] private float _dashTime;
 
-        [SerializeField]private bool isDeath;
+        [SerializeField] private bool isDeath;
 
         public float oxygen
         {
@@ -44,7 +44,12 @@ namespace Bubble
             {
                 _oxygen = Mathf.Clamp(value, 0f, maxOxygen);
                 OnOxygenChanged?.Invoke(_oxygen);
-                JudgeDeath();
+
+                if (_oxygen <= 0 && !isDeath)
+                {
+                    isDeath = true;
+                    Death();
+                }
             }
         }
 
@@ -71,7 +76,20 @@ namespace Bubble
         public bool PlayerDashFrame { get => playerDashFrame; set => playerDashFrame = value; }
         public bool PlayerGroundedFrame { get => playerGroundedFrame; set => playerGroundedFrame = value; }
 
-        public bool IsDeath { get => isDeath; }
+        public bool IsDeath
+        {
+            get { return isDeath; }
+            set
+            {
+                bool triggerDeath = !isDeath && value;
+                isDeath = value;
+                if (triggerDeath)
+                {
+                    Death();
+                }
+            }
+        }
+
         public void Set_Player_Input_Ctrl_Enableed(bool set) { player_Input_Ctrl.enabled = set; }
 
         public void Init()
@@ -85,22 +103,16 @@ namespace Bubble
             PlayerGroundedFrame = false;
         }
 
-        private void JudgeDeath()
+        private void Death()
         {
-            if (isDeath) return;
-            if (_oxygen > 0) return;
-
-            isDeath = true;
-            //player_Input_Ctrl
-
-            //Set_Player_Input_Ctrl_Enableed(false);
+            Set_Player_Input_Ctrl_Enableed(false);
             DeathAction?.Invoke();
         }
 
         [ContextMenu(nameof(TestDeath))]
         private void TestDeath()
         {
-            oxygen = 0;
+            _oxygen = 0;
         }
     }
 }
