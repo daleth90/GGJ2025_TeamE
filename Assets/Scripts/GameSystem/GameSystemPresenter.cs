@@ -35,14 +35,14 @@ namespace Bubble
         {
             gameSystemModel.GameSuccessfulAction += () => _audioManager.PlaySound("SFX_Goal");
             gameSystemModel.GameSuccessfulAction += gameSystemModel.GameEnd;
-            gameSystemModel.GameSuccessfulAction += () => gameSystemView.GameSuccessfulViewDelay(500).Forget();
+            gameSystemModel.GameSuccessfulAction += () => gameSystemView.GameSuccessfulViewDelay(3000).Forget();
         }
 
         private void AddGameFailAction()
         {
             gameSystemModel.GameFailAction += () => _audioManager.PlaySound("SFX_PlayerDeath");
             gameSystemModel.GameFailAction += gameSystemModel.GameEnd;
-            gameSystemModel.GameFailAction += () => gameSystemView.GameFailViewDelay(500).Forget();
+            gameSystemModel.GameFailAction += () => gameSystemView.GameFailViewDelay(3000).Forget();
         }
 
         private void AddEndUIButtonEvent()
