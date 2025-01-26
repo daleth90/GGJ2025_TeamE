@@ -11,6 +11,13 @@ namespace Bubble
         private bool isStart;
         private CancellationToken cancellationToken;
 
+        private Animator animator;
+
+        private void Start()
+        {
+            animator = GetComponent<Animator>();
+        }
+
         public async void Interact(PlayerStatus playerStatus)
         {
             if (cancellationToken == null) cancellationToken = this.GetCancellationTokenOnDestroy();
@@ -23,6 +30,7 @@ namespace Bubble
             {
                 await UniTask.NextFrame(cancellationToken: cancellationToken);
                 playerStatus.oxygen += RestoreOxygenSpeed * Time.deltaTime;
+                animator.SetTrigger("AirBump");
             }
         }
 
