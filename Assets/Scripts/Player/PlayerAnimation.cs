@@ -37,8 +37,8 @@ namespace Bubble
 
         private void Update()
         {
-            if (_playerStatus.IsDeath) AniRun("Death", true);
-            else AniRun("Death", false);
+            if (_playerStatus.IsDeath) _characterAnimator.SetBool("Death", true);
+            else _characterAnimator.SetBool("Death", false);
 
             transform.localScale = _playerStatus.FaceRight ? new Vector3(-1, 1, 1) : new Vector3(1, 1, 1);
 
@@ -55,6 +55,7 @@ namespace Bubble
             {
                 _audioManager.PlaySound("SFX_PlayerDash");
             }
+
             if (_playerStatus.IsDashing) AniRun("Dash", true);
             else AniRun("Dash", false);
 
@@ -77,8 +78,6 @@ namespace Bubble
                     _soundLoopMove = null;
                 }
             }
-            if (_playerStatus.IsDeath) AniRun("Death", true);
-            else AniRun("Death", false);
 
             if (_playerStatus.isUp)
             {
