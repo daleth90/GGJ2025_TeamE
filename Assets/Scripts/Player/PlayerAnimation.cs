@@ -19,6 +19,8 @@ namespace Bubble
         private IAudioManager _audioManager;
         private AudioSource _soundLoopMove;
 
+        private UpFX upFX = new();
+
         private void Awake()
         {
             _audioManager = ServiceLocator.Resolve<IAudioManager>();
@@ -74,6 +76,16 @@ namespace Bubble
             }
             if (_playerStatus.IsDeath) AniRun("Death", true);
             else AniRun("Death", false);
+
+            if (_playerStatus.isUp)
+            {
+                upFX.Play(transform);
+            }
+            else
+            {
+                upFX.Stop();
+            }
+
             RefreshBubbleScale();
         }
 

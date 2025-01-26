@@ -22,6 +22,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d5d492385b057ea41b1220f16a754837
+    m_Address: CFXR4 Bubbles Breath Underwater Loop Variant
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 276cd4d929b94ff479c02c86acf6405d, type: 2}
   m_SchemaSet:

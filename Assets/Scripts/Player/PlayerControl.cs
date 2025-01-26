@@ -65,6 +65,7 @@ namespace Bubble
             {
                 playerStatus.VelocityY += playerStatus.MoveUpAcceleration * Time.deltaTime;
                 playerStatus.oxygen -= playerStatus.upOxygenCost * Time.deltaTime;
+                playerStatus.isUp = true;
             }
             else  // Gravity
             {
@@ -72,6 +73,7 @@ namespace Bubble
                 {
                     playerStatus.VelocityY -= playerStatus.Gravity * Time.deltaTime;
                 }
+                playerStatus.isUp = false;
             }
         }
 

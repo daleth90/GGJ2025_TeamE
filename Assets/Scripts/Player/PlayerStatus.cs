@@ -9,6 +9,7 @@ namespace Bubble
         [field: SerializeField] public float moveOxygenCost { get; private set; } = 1f;
         [field: SerializeField] public float upOxygenCost { get; private set; } = 1.5f;
         [field: SerializeField] public float dashOxygenCost { get; private set; } = 2f;
+        [field: SerializeField] public bool isUp;
 
         [Space]
         [SerializeField] private int maxOxygen = 100;
