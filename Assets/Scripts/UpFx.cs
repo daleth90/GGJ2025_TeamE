@@ -5,30 +5,33 @@ namespace Bubble
 {
     public class UpFX
     {
-        private IVfxManager _ivfxManager;
+        private IVfxManager _vfxManager;
         private GameObject fxObject;
 
-        public void Play(Transform transform)
+        private void Init()
+        {
+            _vfxManager ??= ServiceLocator.Resolve<IVfxManager>();
+        }
+
+        public void Play(Transform parent)
         {
             Init();
-
-            fxObject.transform.parent = transform;
-            fxObject.transform.localPosition = Vector3.zero;
+            if (fxObject == null)
+            {
+                fxObject = _vfxManager.Get("CFXR4 Bubbles Breath Underwater Loop Variant");
+                fxObject.transform.parent = parent;
+                fxObject.transform.localPosition = Vector3.zero;
+                fxObject.SetActive(true);
+            }
         }
 
         public void Stop()
         {
             Init();
-            _ivfxManager.Release(fxObject);
-        }
-
-        private void Init()
-        {
-            if (_ivfxManager == null) _ivfxManager = ServiceLocator.Resolve<IVfxManager>();
-
-            if (fxObject == null)
+            if (fxObject != null)
             {
-                fxObject = _ivfxManager.Get("CFXR4 Bubbles Breath Underwater Loop Variant");
+                _vfxManager.Release(fxObject);
+                fxObject = null;
             }
         }
     }
