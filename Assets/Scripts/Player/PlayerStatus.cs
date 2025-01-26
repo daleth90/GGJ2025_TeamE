@@ -70,6 +70,7 @@ namespace Bubble
         public bool PlayerDashFrame { get => playerDashFrame; set => playerDashFrame = value; }
         public bool PlayerGroundedFrame { get => playerGroundedFrame; set => playerGroundedFrame = value; }
 
+        public bool IsDeath { get => isDeath; }
         public void Set_Player_Input_Ctrl_Enableed(bool set) { player_Input_Ctrl.enabled = set; }
 
         public void Init()

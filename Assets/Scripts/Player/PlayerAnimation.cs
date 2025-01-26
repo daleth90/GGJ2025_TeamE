@@ -39,25 +39,24 @@ namespace Bubble
 
             if (_playerStatus.VelocityX != 0f)
             {
-                _characterAnimator.SetBool("Walk", true);
-                //_bubbleAnimator.SetBool("Walk", true);
+                AniRun("Walk", true);
             }
             else
             {
-                _characterAnimator.SetBool("Walk", false);
-                //_bubbleAnimator.SetBool("Walk", false);
+                AniRun("Walk", false);
             }
 
             if (_playerStatus.PlayerDashFrame)
             {
+                AniRun("Dash", true);
                 _audioManager.PlaySound("SFX_PlayerDash");
             }
+            if (_playerStatus.IsDashing) AniRun("Dash", false);
 
             if (_playerStatus.PlayerGroundedFrame)
             {
                 _audioManager.PlaySound("SFX_PlayerOnGround");
             }
-
             if (_playerStatus.VelocityX != 0f)
             {
                 if (_soundLoopMove == null)
@@ -73,7 +72,8 @@ namespace Bubble
                     _soundLoopMove = null;
                 }
             }
-
+            if (_playerStatus.IsDeath) AniRun("Death", true);
+            else AniRun("Death", false);
             RefreshBubbleScale();
         }
 
@@ -82,6 +82,11 @@ namespace Bubble
             float percentage = _playerStatus.oxygen / _playerStatus.MaxOxygen;
             float scale = Mathf.Lerp(_bubbleMinScale, 1f, percentage);
             _bubbleAnimator.transform.localScale = new Vector3(scale, scale, 1f);
+        }
+        private void AniRun(string Name ,bool B)
+        {
+            _characterAnimator.SetBool(Name, B);
+            _bubbleAnimator.SetBool(Name, B);
         }
     }
 }
